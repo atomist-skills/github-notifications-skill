@@ -4,6 +4,7 @@
         "@atomist/sdm": "2.0.0-remove-index.20200107085713",
         "@atomist/sdm-core": "2.0.0-remove-index.20200110224540",
         "@atomist/sdm-function-gcp": "0.1.0-master.20200109201134",
+        "@atomist/sdm-pack-gcp": "0.1.0-remove-index.20200107172000",
         "@atomist/sdm-pack-lifecycle": "0.3.0-remove-index.20200110124325",
         "@atomist/sdm-pack-lifecycle-github": "0.2.0-remove-index.20200110125822"
     },
