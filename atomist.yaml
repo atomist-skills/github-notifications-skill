@@ -21,106 +21,106 @@ skill:
 commands:
   - name: SelfDescribe
     description: Describe this SDM
-    intent: describe sdm atm-client-f5af355d-98f7-46d5-95ba-fa9ba08219fb
+    pattern: describe sdm atm-client-f5af355d-98f7-46d5-95ba-fa9ba08219fb
   - name: ConfigureDirectMessageUserPreferences
     description: Configure DM preferences for the invoking user
-    intent: ^configure direct messages(\s(?:--)?(?:msgId|cancel|requester|teamId)=(?:["'\s\S]*))*$
+    pattern: ^configure direct messages(\s(?:--)?(?:msgId|cancel|requester|teamId)=(?:["'\s\S]*))*$
   - name: ConfigureLifecyclePreferences
     description: Configure lifecycle actions for the current channel
-    intent: ^configure lifecycle(\s(?:--)?(?:lifecycle|msgId|cancel|channelName|channelId|teamId)=(?:["'\s\S]*))*$
+    pattern: ^configure lifecycle(\s(?:--)?(?:lifecycle|msgId|cancel|channelName|channelId|teamId)=(?:["'\s\S]*))*$
   - name: CancelGoalSets
     description: Cancel one or all pending goal sets of this SDM
-    intent: ^cancel goal sets atm-client-f5af355d-98f7-46d5-95ba-fa9ba08219fb(\s(?:--)?(?:goalSetId|msgId)=(?:["'\s\S]*))*$
+    pattern: ^cancel goal sets atm-client-f5af355d-98f7-46d5-95ba-fa9ba08219fb(\s(?:--)?(?:goalSetId|msgId)=(?:["'\s\S]*))*$
   - name: SubscribeToGoalSets
     description: Subscribe to goal sets
-    intent: ^subscribe to goal sets(\s(?:--)?(?:login|scmLogin|channelName|channelId|chatTeamId)=(?:["'\s\S]*))*$
+    pattern: ^subscribe to goal sets(\s(?:--)?(?:login|scmLogin|channelName|channelId|chatTeamId)=(?:["'\s\S]*))*$
   - name: UnscribeFromGoalSets
     description: Unsubscribe from goal sets
-    intent: ^unsubscribe from goal sets(\s(?:--)?(?:login|scmLogin|channelName|channelId|chatTeamId)=(?:["'\s\S]*))*$
+    pattern: ^unsubscribe from goal sets(\s(?:--)?(?:login|scmLogin|channelName|channelId|chatTeamId)=(?:["'\s\S]*))*$
   - name: CreateChannel
     description: Create channel and link it to a repository
-    intent: ^link channel(\s(?:--)?(?:channel|repo|msgId|teamId|owner|apiUrl|provider|userId)=(?:["'\s\S]*))*$
+    pattern: ^link channel(\s(?:--)?(?:channel|repo|msgId|teamId|owner|apiUrl|provider|userId)=(?:["'\s\S]*))*$
   - name: LinkRepo
     description: Link a repository and channel
-    intent: ^repo(\s(?:--)?(?:msgId|msg|teamId|channelId|channelName|owner|apiUrl|provider|name)=(?:["'\s\S]*))*$
+    pattern: ^repo(\s(?:--)?(?:msgId|msg|teamId|channelId|channelName|owner|apiUrl|provider|name)=(?:["'\s\S]*))*$
   - name: ListRepoLinks
     description: View repos linked to this channel and optionally unlink them
-    intent: ^repos(\s(?:--)?(?:msgId|channelName|teamId)=(?:["'\s\S]*))*$
+    pattern: ^repos(\s(?:--)?(?:msgId|channelName|teamId)=(?:["'\s\S]*))*$
   - name: UnlinkRepo
     description: Unlink a repository and channel
-    intent: ^unlink repo(\s(?:--)?(?:msgId|teamId|channelId|channelName|name|owner|apiUrl|provider)=(?:["'\s\S]*))*$
+    pattern: ^unlink repo(\s(?:--)?(?:msgId|teamId|channelId|channelName|name|owner|apiUrl|provider)=(?:["'\s\S]*))*$
   - name: AddGitHubPullRequestAutoLabels
     description: Add Pull Request auto merge and rebase labels
-    intent: ^add pr labels(\s(?:--)?(?:repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^add pr labels(\s(?:--)?(?:repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: AssignGitHubPullRequestReviewer
     description: Assign GitHub pull request reviewer
-    intent: ^assign reviewer(\s(?:--)?(?:issue|reviewer|repo|owner|teamId|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^assign reviewer(\s(?:--)?(?:issue|reviewer|repo|owner|teamId|apiUrl)=(?:["'\s\S]*))*$
   - name: AssignToMeGitHubIssue
     description: Assign a GitHub issue to the invoking user or provided assingee
-    intent: ^assign issue to me(\s(?:--)?(?:issue|assignee|repo|owner|requester|teamId|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^assign issue to me(\s(?:--)?(?:issue|assignee|repo|owner|requester|teamId|apiUrl)=(?:["'\s\S]*))*$
   - name: CloseGitHubIssue
     description: Close a GitHub issue
-    intent: ^close issue(\s(?:--)?(?:issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^close issue(\s(?:--)?(?:issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: CommentGitHubIssue
     description: Comment on a GitHub issue
-    intent: ^comment issue(\s(?:--)?(?:issue|comment|repo|owner|apiUrl|teamId)=(?:["'\s\S]*))*$
+    pattern: ^comment issue(\s(?:--)?(?:issue|comment|repo|owner|apiUrl|teamId)=(?:["'\s\S]*))*$
   - name: CreateGitHubIssue
     description: Create an issue on GitHub
-    intent: ^create issue(\s(?:--)?(?:title|body|repo|owner|providerId|apiUrl|channelName|teamId)=(?:["'\s\S]*))*$
+    pattern: ^create issue(\s(?:--)?(?:title|body|repo|owner|providerId|apiUrl|channelName|teamId)=(?:["'\s\S]*))*$
   - name: CreateGitHubRelease
     description: Create a release of a repo on GitHub
-    intent: ^create release(\s(?:--)?(?:tag|message|repo|owner|apiUrl|webUrl)=(?:["'\s\S]*))*$
+    pattern: ^create release(\s(?:--)?(?:tag|message|repo|owner|apiUrl|webUrl)=(?:["'\s\S]*))*$
   - name: CreateGitHubTag
     description: Create a tag on GitHub
-    intent: ^create tag(\s(?:--)?(?:tag|sha|message|msgId|repo|owner|apiUrl|requester|teamId)=(?:["'\s\S]*))*$
+    pattern: ^create tag(\s(?:--)?(?:tag|sha|message|msgId|repo|owner|apiUrl|requester|teamId)=(?:["'\s\S]*))*$
   - name: CreateRelatedGitHubIssue
     description: Create a related GitHub issue in a different org and/or repo
-    intent: ^related issue(\s(?:--)?(?:targetOwner|targetRepo|issue|msgId|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^related issue(\s(?:--)?(?:targetOwner|targetRepo|issue|msgId|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: DeleteGitHubBranch
     description: Deletes a GitHub branch
-    intent: ^delete branch(\s(?:--)?(?:branch|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^delete branch(\s(?:--)?(?:branch|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: DisplayGitHubIssue
     description: Display an issue on GitHub
-    intent: ^show issue(\s(?:--)?(?:issue|showMore|repo|owner|apiUrl|channelName|teamId)=(?:["'\s\S]*))*$
+    pattern: ^show issue(\s(?:--)?(?:issue|showMore|repo|owner|apiUrl|channelName|teamId)=(?:["'\s\S]*))*$
   - name: DisplayGitHubPullRequest
     description: Display a pull request on GitHub
-    intent: ^show pull request(\s(?:--)?(?:issue|repo|owner|apiUrl|channelName)=(?:["'\s\S]*))*$
+    pattern: ^show pull request(\s(?:--)?(?:issue|repo|owner|apiUrl|channelName)=(?:["'\s\S]*))*$
   - name: EnableGitHubPullRequestAutoMerge
     description: Enable Pull Request auto merge
-    intent: ^auto merge pr(\s(?:--)?(?:issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^auto merge pr(\s(?:--)?(?:issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: EnableGitHubPullRequestAutoRebase
     description: Enable Pull Request auto rebase
-    intent: ^auto rebase pr(\s(?:--)?(?:issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^auto rebase pr(\s(?:--)?(?:issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: LinkRelatedGitHubIssue
     description: Link a related GitHub issue in a different org and/or repo
-    intent: ^link issue(\s(?:--)?(?:targetOwner|targetRepo|targetIssue|issue|msgId|repo|owner|url|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^link issue(\s(?:--)?(?:targetOwner|targetRepo|targetIssue|issue|msgId|repo|owner|url|apiUrl)=(?:["'\s\S]*))*$
   - name: ListMyGitHubIssues
     description: List user's GitHub issues from mapped repositories
-    intent: ^my issues(\s(?:--)?(?:days|apiUrl|teamId|channel|requester)=(?:["'\s\S]*))*$
+    pattern: ^my issues(\s(?:--)?(?:days|apiUrl|teamId|channel|requester)=(?:["'\s\S]*))*$
   - name: MergeGitHubPullRequest
     description: Merge a GitHub Pull Request
-    intent: ^merge pr(\s(?:--)?(?:issue|mergeMethod|title|message|sha|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^merge pr(\s(?:--)?(?:issue|mergeMethod|title|message|sha|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: MoveGitHubIssue
     description: Moves a GitHub issue to a different org and/or repo
-    intent: ^move issue(\s(?:--)?(?:targetOwner|targetRepo|issue|msgId|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^move issue(\s(?:--)?(?:targetOwner|targetRepo|issue|msgId|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: RaiseGitHubPullRequest
     description: Raise a GitHub pull request
-    intent: ^raise pr(\s(?:--)?(?:title|body|base|head|repo|owner|teamId|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^raise pr(\s(?:--)?(?:title|body|base|head|repo|owner|teamId|apiUrl)=(?:["'\s\S]*))*$
   - name: ReactGitHubIssue
     description: React to a GitHub issue
-    intent: ^react issue(\s(?:--)?(?:reaction|issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^react issue(\s(?:--)?(?:reaction|issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: ReactGitHubIssueComment
     description: React to a GitHub comment
-    intent: ^react issue comment(\s(?:--)?(?:reaction|comment|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^react issue comment(\s(?:--)?(?:reaction|comment|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: ReopenGitHubIssue
     description: Reopen a GitHub issue
-    intent: ^reopen issue(\s(?:--)?(?:issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^reopen issue(\s(?:--)?(?:issue|repo|owner|apiUrl)=(?:["'\s\S]*))*$
   - name: SearchGitHubRepositoryIssues
     description: Search issues and pull requests in GitHub repositories
-    intent: ^search issues(\s(?:--)?(?:q|days|perPage|page|id|repo|apiUrl|teamId|channel|requester|owner|apiUrl|channel)=(?:["'\s\S]*))*$
+    pattern: ^search issues(\s(?:--)?(?:q|days|perPage|page|id|repo|apiUrl|teamId|channel|requester|owner|apiUrl|channel)=(?:["'\s\S]*))*$
   - name: ToggleLabelGitHubIssue
     description: Add label to or remove a label from a GitHub issue
-    intent: ^toggle issue label(\s(?:--)?(?:issue|label|repo|owner|apiUrl)=(?:["'\s\S]*))*$
+    pattern: ^toggle issue label(\s(?:--)?(?:issue|label|repo|owner|apiUrl)=(?:["'\s\S]*))*$
 
 subscriptions:
 
