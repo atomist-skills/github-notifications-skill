@@ -18,6 +18,7 @@ skill:
     memory: 1024
     timeout: 60
 
+
 commands:
   - name: ConfigureDirectMessageUserPreferences
     description: Configure DM preferences for the invoking user
