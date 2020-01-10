@@ -119,6 +119,1059 @@ commands:
     description: Add label to or remove a label from a GitHub issue
     pattern: ^toggle issue label(\s(?:--)?(?:issue|label|repo|owner|apiUrl)=(?:["'\s\S]*))*$
 
+---
 subscriptions:
+  - subscription NotifyPusherOnBuild { Build { _id status buildUrl name number provider
+    buildId commit { sha message committer { login person { chatId { screenName preferences
+    { name value } chatTeam { id preferences { name value } } } } } } repo { name owner
+    org { provider { url apiUrl providerId providerType private } } channels { name
+    channelId } } }}
+  - 'subscription BranchToBranchLifecycle { Branch { _id pullRequests(first: 1, orderBy:
+  [timestamp_desc]) { merged } commit { sha message } name repo { name owner defaultBranch
+  channels { name team { id name } } org { team { id chatTeams { id preferences {
+  name value } } } provider { id apiUrl url providerId providerType private } } }
+  timestamp }}'
+  - 'subscription DeletedBranchToBranchLifecycle { DeletedBranch { _id pullRequests(first:
+  1, orderBy: [timestamp_desc]) { merged } commit { sha message } name repo { name
+  owner defaultBranch channels { name team { id name } } org { team { id chatTeams
+  { id preferences { name value } } } provider { id apiUrl url providerId providerType
+  private } } } timestamp }}'
+  - subscription PullRequestToBranchLifecycle { PullRequest { branch @required { id
+    } }}
+  - 'subscription BotJoinedChannel { UserJoinedChannel { user(isAtomistBot: "true")
+  @required { isAtomistBot screenName userId } channel { botInvitedSelf channelId
+  name repos { name owner org { provider { url } } } team { id orgs { owner ownerType
+  provider { apiUrl providerId } repo { name owner } } } } }}'
+  - subscription ChannelLinkCreated { ChannelLink { channel { name normalizedName team
+    { id } } repo { name owner defaultBranch org { ownerType provider { apiUrl url providerId
+    providerType private } } } }}
+  - subscription NotifyMentionedOnIssueComment { Comment { _id gitHubId body by { login
+    person { chatId { screenName preferences { name value } chatTeam { id } } } } issue
+    { title body state timestamp number lastAssignedBy { login } openedBy { login }
+    repo { name owner org { provider { url providerId providerType private } } channels
+    { name channelId } } } }}
+  - subscription NotifyMentionedOnPullRequestComment { Comment { _id gitHubId body by
+    { login person { chatId { screenName preferences { name value } chatTeam { id }
+    } } } pullRequest { title body state merged timestamp number lastAssignedBy { login
+    } author { login } repo { name owner org { provider { url providerId providerType
+    private } } channels { name channelId } } } }}
+  - subscription CommentToIssueCommentLifecycle { Comment { _id gitHubId timestamp body
+    by { login name person { chatId { screenName } gitHubId { login } } } issue { title
+    number state repo { name owner channels { name team { id } } org { provider { apiUrl
+    url providerId providerType private } team { id chatTeams { id preferences { name
+    value } } } } labels { name } } openedBy { login } closedBy { login } assignees
+    { login } resolvingCommits { sha message author { person { chatId { screenName }
+    } } } labels { name } } }}
+  - subscription CommentToPullRequestCommentLifecycle { Comment { _id gitHubId timestamp
+    body by { login name person { chatId { screenName } gitHubId { login } } } pullRequest
+    { title number state merged repo { name owner channels { name team { id } } org
+    { provider { apiUrl url providerId providerType private } team { id chatTeams {
+    id preferences { name value } } } } labels { name } } author { login person { chatId
+    { screenName } } } assignees { login person { chatId { screenName } } } labels {
+    name } } }}
+  - subscription IssueToIssueCommentLifecycle { Issue { _id title number state repo
+    { name owner channels { name team { id } } org { provider { apiUrl url providerId
+    providerType private } team { id chatTeams { id preferences { name value } } } }
+    labels { name } } openedBy { login } closedBy { login } assignees { login } resolvingCommits
+    { sha message author { person { chatId { screenName } } } } labels { name } comments
+    { gitHubId timestamp body by { login name person { chatId { screenName } gitHubId
+    { login } } } issue { number state title } } }}
+  - subscription PullRequestToPullRequestCommentLifecycle { PullRequest { _id title
+    number state merged repo { name owner channels { name team { id } } org { provider
+    { apiUrl url providerId providerType private } team { id chatTeams { id preferences
+    { name value } } } } labels { name } } assignees { login person { chatId { screenName
+    } } } labels { name } comments { gitHubId timestamp body by { login name person
+    { chatId { screenName } gitHubId { login } } } pullRequest { number state title
+    } } }}
+  - subscription IssueRelationshipOnCommit { Commit { repo { name owner org { provider
+    { providerId providerType private } } } sha message }}
+  - 'subscription CommentOnRelatedIssueClosed { Issue(state: closed) { number repo {
+  owner name } closedBy { login } }}'
+  - subscription NotifyMentionedOnIssue { Issue { _id name number title body state lastAssignedBy
+    { login } openedBy { login person { chatId { screenName preferences { name value
+    } chatTeam { id } } } } closedBy { login person { chatId { screenName preferences
+    { name value } } } } assignees { login person { chatId { screenName preferences
+    { name value } chatTeam { id } } } } repo { name owner labels { name } channels
+    { name channelId } org { provider { apiUrl gitUrl url providerId providerType }
+    } } }}
+  - subscription IssueToIssueLifecycle { Issue { _id name title body state number createdAt
+    updatedAt closedAt comments { by { login } body } resolvingCommits { sha message
+    author { login person { chatId { screenName } } } } openedBy { login } closedBy
+    { login } assignees { login } repo { name owner labels { name } channels { name
+    team { id } } org { provider { apiUrl gitUrl url providerId providerType private
+    } team { id chatTeams { id preferences { name value } } } } } labels { name } timestamp
+    }}
+  - subscription IssueToIssueCardLifecycle { Issue { _id name title body state number
+    createdAt updatedAt closedAt comments { by { login } body } resolvingCommits { sha
+    message author { login person { chatId { screenName } } } } openedBy { login } closedBy
+    { login } assignees { login } repo { name owner labels { name } channels { name
+    team { id } } org { provider { apiUrl gitUrl url providerId providerType private
+    } team { id chatTeams { id preferences { name value } } } } } labels { name } timestamp
+    }}
+  - 'subscription CommentToIssueCardLifecycle { Comment(commentType: issue) { _id by
+  { login } body issue { _id name title body state number createdAt updatedAt closedAt
+  comments { by { login } body } resolvingCommits { sha message author { login person
+  { chatId { screenName } } } } openedBy { login } closedBy { login } assignees {
+  login } repo { name owner labels { name } channels { name team { id } } org { provider
+  { apiUrl gitUrl url providerId providerType private } team { id chatTeams { id preferences
+  { name value } } } } } labels { name } timestamp } timestamp }}'
+  - 'subscription DeploymentOnK8Pod { K8Pod { namespace environment containers(state:
+  "running") @required { name state ready timestamp image { commits @required { sha
+  repo @required { name owner } } } } }}'
+  - subscription RepositoryOnboarded { RepoOnboarded { repo { owner name org { provider
+    { url apiUrl gitUrl providerId providerType private } team { id } } defaultBranch
+    } }}
+  - subscription NotifyMentionedOnPullRequest { PullRequest { _id name number title
+    body state merged lastAssignedBy { login } author { login person { chatId { screenName
+    preferences { name value } chatTeam { id } } } } merger { login person { chatId
+    { screenName preferences { name value } } } } assignees { login person { chatId
+    { screenName preferences { name value } chatTeam { id } } } } reviewers { login
+    person { chatId { screenName preferences { name value } chatTeam { id } } } } repo
+    { name owner labels { name } channels { name channelId } org { provider { apiUrl
+    gitUrl url providerId providerType private } } } }}
+  - 'subscription BranchToPullRequestLifecycle { Branch { _id pullRequests(first: 1)
+  { _id number name body state merged timestamp title baseBranchName branchName createdAt
+  mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
+  } chatId { screenName id } } } closedAt branch { name timestamp } author { login
+  name person { gitHubId { login } chatId { screenName id } } } merger { login name
+  person { gitHubId { login } chatId { screenName id } } } assignees { login name
+  person { gitHubId { login } chatId { screenName id } } } reviewers { login name
+  person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription CommentToPullRequestLifecycle { Comment { _id pullRequest { _id number
+  name body state merged timestamp title baseBranchName branchName createdAt mergedAt
+  head { sha message } lastAssignedBy { login name person { gitHubId { login } chatId
+  { screenName id } } } closedAt branch { name timestamp } author { login name person
+  { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
+  { login } chatId { screenName id } } } assignees { login name person { gitHubId
+  { login } chatId { screenName id } } } reviewers { login name person { gitHubId
+  { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
+  10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
+  name release { name timestamp } } statuses { state description context targetUrl
+  timestamp } author { login name person { gitHubId { login } chatId { screenName
+  id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl buildId
+  status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc]) {
+  name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription CommitToPullRequestLifecycle { Commit { _id pullRequests(first: 1)
+  { _id number name body state merged timestamp title baseBranchName branchName createdAt
+  mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
+  } chatId { screenName id } } } closedAt branch { name timestamp } author { login
+  name person { gitHubId { login } chatId { screenName id } } } merger { login name
+  person { gitHubId { login } chatId { screenName id } } } assignees { login name
+  person { gitHubId { login } chatId { screenName id } } } reviewers { login name
+  person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription DeletedBranchToPullRequestLifecycle { DeletedBranch { id pullRequests(first:
+  1) { _id number name body state merged timestamp title baseBranchName branchName
+  createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
+  { login } chatId { screenName id } } } closedAt branch { name timestamp } author
+  { login name person { gitHubId { login } chatId { screenName id } } } merger { login
+  name person { gitHubId { login } chatId { screenName id } } } assignees { login
+  name person { gitHubId { login } chatId { screenName id } } } reviewers { login
+  name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription PullRequestToPullRequestLifecycle { PullRequest { _id number name
+  body state merged timestamp title baseBranchName branchName createdAt mergedAt head
+  { sha message } lastAssignedBy { login name person { gitHubId { login } chatId {
+  screenName id } } } closedAt branch { name timestamp } author { login name person
+  { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
+  { login } chatId { screenName id } } } assignees { login name person { gitHubId
+  { login } chatId { screenName id } } } reviewers { login name person { gitHubId
+  { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
+  10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
+  name release { name timestamp } } statuses { state description context targetUrl
+  timestamp } author { login name person { gitHubId { login } chatId { screenName
+  id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl buildId
+  status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc]) {
+  name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } }}'
+  - 'subscription ReviewToPullRequestLifecycle { Review { _id pullRequest { _id number
+  name body state merged timestamp title baseBranchName branchName createdAt mergedAt
+  head { sha message } lastAssignedBy { login name person { gitHubId { login } chatId
+  { screenName id } } } closedAt branch { name timestamp } author { login name person
+  { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
+  { login } chatId { screenName id } } } assignees { login name person { gitHubId
+  { login } chatId { screenName id } } } reviewers { login name person { gitHubId
+  { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
+  10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
+  name release { name timestamp } } statuses { state description context targetUrl
+  timestamp } author { login name person { gitHubId { login } chatId { screenName
+  id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl buildId
+  status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc]) {
+  name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription StatusToPullRequestLifecycle { Status { _id commit { pullRequests(first:
+  1) { _id number name body state merged timestamp title baseBranchName branchName
+  createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
+  { login } chatId { screenName id } } } closedAt branch { name timestamp } author
+  { login name person { gitHubId { login } chatId { screenName id } } } merger { login
+  name person { gitHubId { login } chatId { screenName id } } } assignees { login
+  name person { gitHubId { login } chatId { screenName id } } } reviewers { login
+  name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } } }}'
+  - 'subscription BranchToPullRequestCardLifecycle { Branch { _id pullRequests(first:
+  1) { _id number name body state merged timestamp title baseBranchName branchName
+  createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
+  { login } chatId { screenName id } } } closedAt branch { name timestamp } author
+  { login name person { gitHubId { login } chatId { screenName id } } } merger { login
+  name person { gitHubId { login } chatId { screenName id } } } assignees { login
+  name person { gitHubId { login } chatId { screenName id } } } reviewers { login
+  name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription CommentToPullRequestCardLifecycle { Branch { _id pullRequests(first:
+  1) { _id number name body state merged timestamp title baseBranchName branchName
+  createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
+  { login } chatId { screenName id } } } closedAt branch { name timestamp } author
+  { login name person { gitHubId { login } chatId { screenName id } } } merger { login
+  name person { gitHubId { login } chatId { screenName id } } } assignees { login
+  name person { gitHubId { login } chatId { screenName id } } } reviewers { login
+  name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription CommitToPullRequestCardLifecycle { Commit { _id pullRequests(first:
+  1) { _id number name body state merged timestamp title baseBranchName branchName
+  createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
+  { login } chatId { screenName id } } } closedAt branch { name timestamp } author
+  { login name person { gitHubId { login } chatId { screenName id } } } merger { login
+  name person { gitHubId { login } chatId { screenName id } } } assignees { login
+  name person { gitHubId { login } chatId { screenName id } } } reviewers { login
+  name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription DeletedBranchToPullRequestCardLifecycle { DeletedBranch { id pullRequests(first:
+  1) { _id number name body state merged timestamp title baseBranchName branchName
+  createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
+  { login } chatId { screenName id } } } closedAt branch { name timestamp } author
+  { login name person { gitHubId { login } chatId { screenName id } } } merger { login
+  name person { gitHubId { login } chatId { screenName id } } } assignees { login
+  name person { gitHubId { login } chatId { screenName id } } } reviewers { login
+  name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription PullRequestToPullRequestCardLifecycle { PullRequest { _id number name
+  body state merged timestamp title baseBranchName branchName createdAt mergedAt head
+  { sha message } lastAssignedBy { login name person { gitHubId { login } chatId {
+  screenName id } } } closedAt branch { name timestamp } author { login name person
+  { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
+  { login } chatId { screenName id } } } assignees { login name person { gitHubId
+  { login } chatId { screenName id } } } reviewers { login name person { gitHubId
+  { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
+  10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
+  name release { name timestamp } } statuses { state description context targetUrl
+  timestamp } author { login name person { gitHubId { login } chatId { screenName
+  id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl buildId
+  status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc]) {
+  name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } }}'
+  - 'subscription ReviewToPullRequestCardLifecycle { Review { _id pullRequest { _id
+  number name body state merged timestamp title baseBranchName branchName createdAt
+  mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
+  } chatId { screenName id } } } closedAt branch { name timestamp } author { login
+  name person { gitHubId { login } chatId { screenName id } } } merger { login name
+  person { gitHubId { login } chatId { screenName id } } } assignees { login name
+  person { gitHubId { login } chatId { screenName id } } } reviewers { login name
+  person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } }}'
+  - 'subscription StatusToPullRequestCardLifecycle { Status { _id commit { pullRequests(first:
+  1) { _id number name body state merged timestamp title baseBranchName branchName
+  createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
+  { login } chatId { screenName id } } } closedAt branch { name timestamp } author
+  { login name person { gitHubId { login } chatId { screenName id } } } merger { login
+  name person { gitHubId { login } chatId { screenName id } } } assignees { login
+  name person { gitHubId { login } chatId { screenName id } } } reviewers { login
+  name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+  { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+  { address } tags { name release { name timestamp } } statuses { state description
+  context targetUrl timestamp } author { login name person { gitHubId { login } chatId
+  { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc]) { name buildUrl
+  buildId status timestamp } } builds(trigger: pull_request, orderBy: [timestamp_desc])
+  { name buildUrl buildId status timestamp } reviews { state by { login } body } repo
+  { name owner channels { name team { id } } allowRebaseMerge allowSquashMerge allowMergeCommit
+  defaultBranch org { provider { url apiUrl gitUrl providerId providerType private
+  } team { id chatTeams { id preferences { name value } } } } } } } }}'
+  - subscription NotifyReviewerOnPush { Push { branch repo { name owner org { owner
+    provider { apiUrl url providerId providerType private } } } commits { author { login
+    } sha pullRequests { author { login } name number title body state merged reviewers
+    { login } reviews { state by { login person { chatId { screenName preferences {
+    name value } chatTeam { id } } } } } } } }}
+  - subscription ApplicationToPushLifecycle { Application { _id commits { pushes { id
+    _id builds { buildId buildUrl name provider status commit { sha } timestamp workflow
+    { id name provider config builds { jobId jobName finishedAt startedAt status id
+    buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp } timestamp }}
+  - subscription BuildToPushLifecycle { Build { _id buildId buildUrl name provider status
+    push { id _id builds { buildId buildUrl name provider status commit { sha } timestamp
+    workflow { id name provider config builds { jobId jobName finishedAt startedAt status
+    id buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp }}
+  - subscription IssueToPushLifecycle { Issue { _id resolvingCommits { pushes { id _id
+    builds { buildId buildUrl name provider status commit { sha } timestamp workflow
+    { id name provider config builds { jobId jobName finishedAt startedAt status id
+    buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp } timestamp }}
+  - subscription K8PodToPushLifecycle { K8Pod { _id name state images { commits { pushes
+    { id _id builds { buildId buildUrl name provider status commit { sha } timestamp
+    workflow { id name provider config builds { jobId jobName finishedAt startedAt status
+    id buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp } timestamp } timestamp }}
+  - subscription PolicyComplianceToPushLifecycle { PolicyCompliance { push { id _id
+    builds { buildId buildUrl name provider status commit { sha } timestamp workflow
+    { id name provider config builds { jobId jobName finishedAt startedAt status id
+    buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } }}
+  - subscription PushToPushLifecycle { Push { id _id builds { buildId buildUrl name
+    provider status commit { sha } timestamp workflow { id name provider config builds
+    { jobId jobName finishedAt startedAt status id buildUrl } } } before { sha analysis
+    { type name sha data displayName displayValue displayType } } after { sha message
+    email { address } author { login avatar person { chatId { screenName } } } committer
+    { login name person { chatId { screenName } } } statuses { context description targetUrl
+    state timestamp } tags { name release { name timestamp } builds { buildId buildUrl
+    name provider status timestamp } timestamp } images { _id image imageName pods {
+    _id name phase environment namespace timestamp baseName resourceVersion containers
+    { _id name imageName timestamp environment state ready restartCount statusJSON resourceVersion
+    } } timestamp } analysis { type name sha data displayName displayValue displayType
+    } } repo { owner name channels { name team { id } } labels { name } org { provider
+    { url apiUrl gitUrl providerId providerType private } team { id chatTeams { id preferences
+    { name value } } } } defaultBranch } commits { sha message email { address } resolves
+    { number name title state openedBy { login } } apps { state host domain data } tags
+    { name release { name } containers { pods { host state name } image } } author {
+    login avatar person { chatId { screenName } } } committer { login name person {
+    chatId { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } }}
+  - subscription ReleaseToPushLifecycle { Release { _id name tag { name commit { pushes
+    { id _id builds { buildId buildUrl name provider status commit { sha } timestamp
+    workflow { id name provider config builds { jobId jobName finishedAt startedAt status
+    id buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp } } timestamp }}
+  - subscription SdmGoalDisplayToPushLifecycle { SdmGoalDisplay { sha branch repo {
+    name owner providerId } push { id _id builds { buildId buildUrl name provider status
+    commit { sha } timestamp workflow { id name provider config builds { jobId jobName
+    finishedAt startedAt status id buildUrl } } } before { sha analysis { type name
+    sha data displayName displayValue displayType } } after { sha message email { address
+    } author { login avatar person { chatId { screenName } } } committer { login name
+    person { chatId { screenName } } } statuses { context description targetUrl state
+    timestamp } tags { name release { name timestamp } builds { buildId buildUrl name
+    provider status timestamp } timestamp } images { _id image imageName pods { _id
+    name phase environment namespace timestamp baseName resourceVersion containers {
+    _id name imageName timestamp environment state ready restartCount statusJSON resourceVersion
+    } } timestamp } analysis { type name sha data displayName displayValue displayType
+    } } repo { owner name channels { name team { id } } labels { name } org { provider
+    { url apiUrl gitUrl providerId providerType private } team { id chatTeams { id preferences
+    { name value } } } } defaultBranch } commits { sha message email { address } resolves
+    { number name title state openedBy { login } } apps { state host domain data } tags
+    { name release { name } containers { pods { host state name } image } } author {
+    login avatar person { chatId { screenName } } } committer { login name person {
+    chatId { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } } }}
+  - subscription SdmGoalToPushLifecycle { SdmGoal { sha branch repo { name owner providerId
+    } push { id _id builds { buildId buildUrl name provider status commit { sha } timestamp
+    workflow { id name provider config builds { jobId jobName finishedAt startedAt status
+    id buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } }}
+  - subscription StatusToPushLifecycle { Status { _id context description targetUrl
+    state commit { pushes { id _id builds { buildId buildUrl name provider status commit
+    { sha } timestamp workflow { id name provider config builds { jobId jobName finishedAt
+    startedAt status id buildUrl } } } before { sha analysis { type name sha data displayName
+    displayValue displayType } } after { sha message email { address } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } statuses { context description targetUrl state timestamp } tags
+    { name release { name timestamp } builds { buildId buildUrl name provider status
+    timestamp } timestamp } images { _id image imageName pods { _id name phase environment
+    namespace timestamp baseName resourceVersion containers { _id name imageName timestamp
+    environment state ready restartCount statusJSON resourceVersion } } timestamp }
+    analysis { type name sha data displayName displayValue displayType } } repo { owner
+    name channels { name team { id } } labels { name } org { provider { url apiUrl gitUrl
+    providerId providerType private } team { id chatTeams { id preferences { name value
+    } } } } defaultBranch } commits { sha message email { address } resolves { number
+    name title state openedBy { login } } apps { state host domain data } tags { name
+    release { name } containers { pods { host state name } image } } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } } timestamp } }}
+  - subscription TagToPushLifecycle { Tag { _id name commit { pushes { id _id builds
+    { buildId buildUrl name provider status commit { sha } timestamp workflow { id name
+    provider config builds { jobId jobName finishedAt startedAt status id buildUrl }
+    } } before { sha analysis { type name sha data displayName displayValue displayType
+    } } after { sha message email { address } author { login avatar person { chatId
+    { screenName } } } committer { login name person { chatId { screenName } } } statuses
+    { context description targetUrl state timestamp } tags { name release { name timestamp
+    } builds { buildId buildUrl name provider status timestamp } timestamp } images
+    { _id image imageName pods { _id name phase environment namespace timestamp baseName
+    resourceVersion containers { _id name imageName timestamp environment state ready
+    restartCount statusJSON resourceVersion } } timestamp } analysis { type name sha
+    data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp } timestamp }}
+  - subscription ApplicationToPushCardLifecycle { Application { _id commits { pushes
+    { id _id builds { buildId buildUrl name provider status commit { sha } timestamp
+    workflow { id name provider config builds { jobId jobName finishedAt startedAt status
+    id buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp } timestamp }}
+  - subscription BuildToPushCardLifecycle { Build { _id buildId buildUrl name provider
+    status push { id _id builds { buildId buildUrl name provider status commit { sha
+    } timestamp workflow { id name provider config builds { jobId jobName finishedAt
+    startedAt status id buildUrl } } } before { sha analysis { type name sha data displayName
+    displayValue displayType } } after { sha message email { address } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } statuses { context description targetUrl state timestamp } tags
+    { name release { name timestamp } builds { buildId buildUrl name provider status
+    timestamp } timestamp } images { _id image imageName pods { _id name phase environment
+    namespace timestamp baseName resourceVersion containers { _id name imageName timestamp
+    environment state ready restartCount statusJSON resourceVersion } } timestamp }
+    analysis { type name sha data displayName displayValue displayType } } repo { owner
+    name channels { name team { id } } labels { name } org { provider { url apiUrl gitUrl
+    providerId providerType private } team { id chatTeams { id preferences { name value
+    } } } } defaultBranch } commits { sha message email { address } resolves { number
+    name title state openedBy { login } } apps { state host domain data } tags { name
+    release { name } containers { pods { host state name } image } } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } } timestamp }}
+  - subscription IssueToPushCardLifecycle { Issue { _id resolvingCommits { pushes {
+    id _id builds { buildId buildUrl name provider status commit { sha } timestamp workflow
+    { id name provider config builds { jobId jobName finishedAt startedAt status id
+    buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp } timestamp }}
+  - subscription K8PodToPushCardLifecycle { K8Pod { _id name state images { commits
+    { pushes { id _id builds { buildId buildUrl name provider status commit { sha }
+    timestamp workflow { id name provider config builds { jobId jobName finishedAt startedAt
+    status id buildUrl } } } before { sha analysis { type name sha data displayName
+    displayValue displayType } } after { sha message email { address } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } statuses { context description targetUrl state timestamp } tags
+    { name release { name timestamp } builds { buildId buildUrl name provider status
+    timestamp } timestamp } images { _id image imageName pods { _id name phase environment
+    namespace timestamp baseName resourceVersion containers { _id name imageName timestamp
+    environment state ready restartCount statusJSON resourceVersion } } timestamp }
+    analysis { type name sha data displayName displayValue displayType } } repo { owner
+    name channels { name team { id } } labels { name } org { provider { url apiUrl gitUrl
+    providerId providerType private } team { id chatTeams { id preferences { name value
+    } } } } defaultBranch } commits { sha message email { address } resolves { number
+    name title state openedBy { login } } apps { state host domain data } tags { name
+    release { name } containers { pods { host state name } image } } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } } timestamp } timestamp
+    } timestamp }}
+  - subscription PushToPushCardLifecycle { Push { id _id builds { buildId buildUrl name
+    provider status commit { sha } timestamp workflow { id name provider config builds
+    { jobId jobName finishedAt startedAt status id buildUrl } } } before { sha analysis
+    { type name sha data displayName displayValue displayType } } after { sha message
+    email { address } author { login avatar person { chatId { screenName } } } committer
+    { login name person { chatId { screenName } } } statuses { context description targetUrl
+    state timestamp } tags { name release { name timestamp } builds { buildId buildUrl
+    name provider status timestamp } timestamp } images { _id image imageName pods {
+    _id name phase environment namespace timestamp baseName resourceVersion containers
+    { _id name imageName timestamp environment state ready restartCount statusJSON resourceVersion
+    } } timestamp } analysis { type name sha data displayName displayValue displayType
+    } } repo { owner name channels { name team { id } } labels { name } org { provider
+    { url apiUrl gitUrl providerId providerType private } team { id chatTeams { id preferences
+    { name value } } } } defaultBranch } commits { sha message email { address } resolves
+    { number name title state openedBy { login } } apps { state host domain data } tags
+    { name release { name } containers { pods { host state name } image } } author {
+    login avatar person { chatId { screenName } } } committer { login name person {
+    chatId { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } }}
+  - subscription ReleaseToPushCardLifecycle { Release { _id name tag { name commit {
+    pushes { id _id builds { buildId buildUrl name provider status commit { sha } timestamp
+    workflow { id name provider config builds { jobId jobName finishedAt startedAt status
+    id buildUrl } } } before { sha analysis { type name sha data displayName displayValue
+    displayType } } after { sha message email { address } author { login avatar person
+    { chatId { screenName } } } committer { login name person { chatId { screenName
+    } } } statuses { context description targetUrl state timestamp } tags { name release
+    { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
+    } images { _id image imageName pods { _id name phase environment namespace timestamp
+    baseName resourceVersion containers { _id name imageName timestamp environment state
+    ready restartCount statusJSON resourceVersion } } timestamp } analysis { type name
+    sha data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp } } timestamp }}
+  - subscription SdmGoalToPushCardLifecycle { SdmGoal { sha branch repo { name owner
+    providerId } push { id _id builds { buildId buildUrl name provider status commit
+    { sha } timestamp workflow { id name provider config builds { jobId jobName finishedAt
+    startedAt status id buildUrl } } } before { sha analysis { type name sha data displayName
+    displayValue displayType } } after { sha message email { address } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } statuses { context description targetUrl state timestamp } tags
+    { name release { name timestamp } builds { buildId buildUrl name provider status
+    timestamp } timestamp } images { _id image imageName pods { _id name phase environment
+    namespace timestamp baseName resourceVersion containers { _id name imageName timestamp
+    environment state ready restartCount statusJSON resourceVersion } } timestamp }
+    analysis { type name sha data displayName displayValue displayType } } repo { owner
+    name channels { name team { id } } labels { name } org { provider { url apiUrl gitUrl
+    providerId providerType private } team { id chatTeams { id preferences { name value
+    } } } } defaultBranch } commits { sha message email { address } resolves { number
+    name title state openedBy { login } } apps { state host domain data } tags { name
+    release { name } containers { pods { host state name } image } } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } } }}
+  - subscription StatusToPushCardLifecycle { Status { _id context description targetUrl
+    state commit { pushes { id _id builds { buildId buildUrl name provider status commit
+    { sha } timestamp workflow { id name provider config builds { jobId jobName finishedAt
+    startedAt status id buildUrl } } } before { sha analysis { type name sha data displayName
+    displayValue displayType } } after { sha message email { address } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } statuses { context description targetUrl state timestamp } tags
+    { name release { name timestamp } builds { buildId buildUrl name provider status
+    timestamp } timestamp } images { _id image imageName pods { _id name phase environment
+    namespace timestamp baseName resourceVersion containers { _id name imageName timestamp
+    environment state ready restartCount statusJSON resourceVersion } } timestamp }
+    analysis { type name sha data displayName displayValue displayType } } repo { owner
+    name channels { name team { id } } labels { name } org { provider { url apiUrl gitUrl
+    providerId providerType private } team { id chatTeams { id preferences { name value
+    } } } } defaultBranch } commits { sha message email { address } resolves { number
+    name title state openedBy { login } } apps { state host domain data } tags { name
+    release { name } containers { pods { host state name } image } } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } } timestamp } }}
+  - subscription TagToPushCardLifecycle { Tag { _id name commit { pushes { id _id builds
+    { buildId buildUrl name provider status commit { sha } timestamp workflow { id name
+    provider config builds { jobId jobName finishedAt startedAt status id buildUrl }
+    } } before { sha analysis { type name sha data displayName displayValue displayType
+    } } after { sha message email { address } author { login avatar person { chatId
+    { screenName } } } committer { login name person { chatId { screenName } } } statuses
+    { context description targetUrl state timestamp } tags { name release { name timestamp
+    } builds { buildId buildUrl name provider status timestamp } timestamp } images
+    { _id image imageName pods { _id name phase environment namespace timestamp baseName
+    resourceVersion containers { _id name imageName timestamp environment state ready
+    restartCount statusJSON resourceVersion } } timestamp } analysis { type name sha
+    data displayName displayValue displayType } } repo { owner name channels { name
+    team { id } } labels { name } org { provider { url apiUrl gitUrl providerId providerType
+    private } team { id chatTeams { id preferences { name value } } } } defaultBranch
+    } commits { sha message email { address } resolves { number name title state openedBy
+    { login } } apps { state host domain data } tags { name release { name } containers
+    { pods { host state name } image } } author { login avatar person { chatId { screenName
+    } } } committer { login name person { chatId { screenName } } } timestamp } timestamp
+    branch goals { id goalSet registration goalSetId environment name uniqueName sha
+    branch state phase fulfillment { method name registration } description url externalUrl
+    externalUrls { label url } externalKey retryFeasible ts preConditions { environment
+    name } provenance { registration version name correlationId ts } repo { owner name
+    } approval { channelId correlationId name registration ts userId version } approvalRequired
+    preApproval { channelId correlationId name registration ts userId version } descriptions
+    { canceled completed failed inProcess planned requested stopped skipped waitingForApproval
+    waitingForPreApproval } parameters preApprovalRequired data } goalSets { goalSet
+    goalSetId goals { uniqueName } ts provenance { name registration version } tags
+    { name value } } goalsDisplayState { state format } compliance { id owner state
+    targets { type name sha data displayName displayValue displayType } differences
+    { type name sha data displayName displayValue displayType } aspects { type displayType
+    manageable } } } timestamp } timestamp }}
+  - subscription RebaseOnPush { Push { after { sha author { login } } commits { sha
+    message } repo { owner name } branch }}
+  - subscription PushToSimplePushLifecycle { Push { id _id builds { buildId buildUrl
+    name provider status commit { sha } timestamp workflow { id name provider config
+    builds { jobId jobName finishedAt startedAt status id buildUrl } } } before { sha
+    analysis { type name sha data displayName displayValue displayType } } after { sha
+    message email { address } author { login avatar person { chatId { screenName } }
+    } committer { login name person { chatId { screenName } } } statuses { context description
+    targetUrl state timestamp } tags { name release { name timestamp } builds { buildId
+    buildUrl name provider status timestamp } timestamp } images { _id image imageName
+    pods { _id name phase environment namespace timestamp baseName resourceVersion containers
+    { _id name imageName timestamp environment state ready restartCount statusJSON resourceVersion
+    } } timestamp } analysis { type name sha data displayName displayValue displayType
+    } } repo { owner name channels { name team { id } } labels { name } org { provider
+    { url apiUrl gitUrl providerId providerType private } team { id chatTeams { id preferences
+    { name value } } } } defaultBranch } commits { sha message email { address } resolves
+    { number name title state openedBy { login } } apps { state host domain data } tags
+    { name release { name } containers { pods { host state name } image } } author {
+    login avatar person { chatId { screenName } } } committer { login name person {
+    chatId { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } }}
+  - subscription SdmGoalToSimplePushLifecycle { SdmGoal { sha branch repo { name owner
+    providerId } push { id _id builds { buildId buildUrl name provider status commit
+    { sha } timestamp workflow { id name provider config builds { jobId jobName finishedAt
+    startedAt status id buildUrl } } } before { sha analysis { type name sha data displayName
+    displayValue displayType } } after { sha message email { address } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } statuses { context description targetUrl state timestamp } tags
+    { name release { name timestamp } builds { buildId buildUrl name provider status
+    timestamp } timestamp } images { _id image imageName pods { _id name phase environment
+    namespace timestamp baseName resourceVersion containers { _id name imageName timestamp
+    environment state ready restartCount statusJSON resourceVersion } } timestamp }
+    analysis { type name sha data displayName displayValue displayType } } repo { owner
+    name channels { name team { id } } labels { name } org { provider { url apiUrl gitUrl
+    providerId providerType private } team { id chatTeams { id preferences { name value
+    } } } } defaultBranch } commits { sha message email { address } resolves { number
+    name title state openedBy { login } } apps { state host domain data } tags { name
+    release { name } containers { pods { host state name } image } } author { login
+    avatar person { chatId { screenName } } } committer { login name person { chatId
+    { screenName } } } timestamp } timestamp branch goals { id goalSet registration
+    goalSetId environment name uniqueName sha branch state phase fulfillment { method
+    name registration } description url externalUrl externalUrls { label url } externalKey
+    retryFeasible ts preConditions { environment name } provenance { registration version
+    name correlationId ts } repo { owner name } approval { channelId correlationId name
+    registration ts userId version } approvalRequired preApproval { channelId correlationId
+    name registration ts userId version } descriptions { canceled completed failed inProcess
+    planned requested stopped skipped waitingForApproval waitingForPreApproval } parameters
+    preApprovalRequired data } goalSets { goalSet goalSetId goals { uniqueName } ts
+    provenance { name registration version } tags { name value } } goalsDisplayState
+    { state format } compliance { id owner state targets { type name sha data displayName
+    displayValue displayType } differences { type name sha data displayName displayValue
+    displayType } aspects { type displayType manageable } } } }}
+  - subscription NotifyAuthorOnReview { Review { _id body state htmlUrl by { login }
+    pullRequest { head { sha } author { login person { chatId { screenName preferences
+    { name value } chatTeam { id } } } } number title state merged labels { name } repo
+    { name owner org { provider { url providerId providerType private } } channels {
+    name channelId } } } }}
+  - subscription PullRequestToReviewLifecycle { PullRequest { _id reviews { _id body
+    state htmlUrl by { login } pullRequest { head { sha } number title state merged
+    reviewers { login } labels { name } repo { name owner org { provider { url providerId
+    providerType private } team { id chatTeams { id preferences { name value } } } }
+    channels { name team { id } } } } } }}
+  - subscription ReviewToReviewLifecycle { Review { _id body state htmlUrl by { login
+    } pullRequest { head { sha } number title state merged reviewers { login } labels
+    { name } repo { name owner org { provider { url apiUrl providerId providerType private
+    } team { id chatTeams { id preferences { name value } } } } channels { name team
+    { id } } } } }}
+  - subscription UpdateOnJobTask { AtmJobTask { job { id data name description owner
+    state createdAt updatedAt completedAt jobCount completedCount } }}
+
+
 
 ingesters:
