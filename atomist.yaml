@@ -19,9 +19,6 @@ skill:
     timeout: 60
 
 commands:
-  - name: SelfDescribe
-    description: Describe this SDM
-    pattern: describe sdm atm-client-f5af355d-98f7-46d5-95ba-fa9ba08219fb
   - name: ConfigureDirectMessageUserPreferences
     description: Configure DM preferences for the invoking user
     pattern: ^configure direct messages(\s(?:--)?(?:msgId|cancel|requester|teamId)=(?:["'\s\S]*))*$
