@@ -119,7 +119,6 @@ commands:
     description: Add label to or remove a label from a GitHub issue
     pattern: ^toggle issue label(\s(?:--)?(?:issue|label|repo|owner|apiUrl)=(?:["'\s\S]*))*$
 
----
 subscriptions:
   - subscription NotifyPusherOnBuild { Build { _id status buildUrl name number provider
     buildId commit { sha message committer { login person { chatId { screenName preferences
