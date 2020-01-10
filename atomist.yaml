@@ -14,6 +14,10 @@ skill:
   package:
     - use: '@atomist/package-sdm-skill'
 
+  runtime:
+    memory: 1024
+    timeout: 60
+
 commands:
   - name: SelfDescribe
     description: Describe this SDM
