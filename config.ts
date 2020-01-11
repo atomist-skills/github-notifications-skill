@@ -29,6 +29,7 @@ export const LifecycleConfig: ConfigurationMaker = async cfg => {
             });
             gls.configure(proxy);
 
+            // Uncomment to populate atomist.yaml
             /*const cmds = [];
             sdm.commandHandlers.forEach(c => {
                 const md = metadataFromInstance(toFactory(c)()) as CommandHandlerMetadata;
@@ -40,7 +41,14 @@ export const LifecycleConfig: ConfigurationMaker = async cfg => {
                     });
                 }
             });
-            logger.info("\n" + JSON.stringify({ commands: cmds }, undefined, 2));*/
+            logger.info("\n" + JSON.stringify({ commands: cmds }, undefined, 2));
+            const events = [];
+            sdm.eventHandlers.forEach(c => {
+                if (!!md.subscription) {
+                    events.push(md.subscription);
+                }
+            });
+            logger.info("\n" + JSON.stringify({ subscriptions: events }, undefined, 2));*/
         },
     };
 
