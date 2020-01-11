@@ -3,12 +3,13 @@
         "@atomist/automation-client": "2.0.0-remove-index.20200107155146",
         "@atomist/sdm": "2.0.0-remove-index.20200107085713",
         "@atomist/sdm-core": "2.0.0-remove-index.20200110224540",
-        "@atomist/sdm-function-gcp": "0.1.0-master.20200109201134",
+        "@atomist/sdm-function-gcp": "0.1.0-master.20200111003057",
         "@atomist/sdm-pack-gcp": "0.1.0-remove-index.20200107172000",
         "@atomist/sdm-pack-lifecycle": "0.3.0-remove-index.20200110124325",
         "@atomist/sdm-pack-lifecycle-github": "0.2.0-remove-index.20200110125822"
     },
     "devDependencies": {
+        "@google-cloud/functions-framework": "^1.3.2",
         "@types/lodash": "^4.14.149",
         "@types/mocha": "^5.2.7",
         "@types/power-assert": "^1.5.3",
@@ -47,5 +48,6 @@
         "test": "echo no tests",
         "test:one": "mocha --require espower-typescript/guess \"test/**/${TEST:-*.test.ts}\"",
         "typedoc": "npm run doc"
-    }
+    },
+    "main": "node_modules/@atomist/sdm-function-gcp/lib/function.js"
 }
