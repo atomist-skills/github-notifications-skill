@@ -23,11 +23,6 @@ export const LifecycleConfig: ConfigurationMaker = async cfg => {
                             const cmd = args[0] as CommandHandlerRegistration;
                             target[propKey]({ name: cmd.name, ...mapCommand(cmd)(sdm) as YamlCommandHandlerRegistration });
                         };
-                    } else if (propKey === "addExtensionPacks") {
-                        return (...args) => {
-                            const packs = args as ExtensionPack[];
-                            target[propKey](...packs.map(p => ({ ...p, name: `${p.name}-${guid().slice(0, 7)}`})));
-                        };
                     } else {
                         return target[propKey];
                     }
