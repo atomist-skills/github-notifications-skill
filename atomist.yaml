@@ -1,6 +1,6 @@
 skill:
   name: '@atomist/lifecycle-github-skill'
-  version: 0.1.0
+  version: 0.2.0
   author: Atomist
   description: Atomist Skill to surface GitHub activity in Chat, eg Slack or Microsoft Teams
   category:
