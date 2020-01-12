@@ -1,3 +1,4 @@
+import { guid } from "@atomist/automation-client/lib/internal/util/string";
 import {
     ConfigurationMaker,
     YamlCommandHandlerRegistration,
@@ -13,14 +14,19 @@ export const LifecycleConfig: ConfigurationMaker = async cfg => {
     const gls = githubLifecycleSupport();
     const functionLifecycleSupport: ExtensionPack = {
         ...gls,
+        name: `${gls.name}-${guid().slice(0, 7)}`,
         configure: sdm => {
-
             const proxy = new Proxy<SoftwareDeliveryMachine>(sdm, {
                 get: (target, propKey) => {
                     if (propKey === "addCommand") {
                         return (...args) => {
                             const cmd = args[0] as CommandHandlerRegistration;
                             target[propKey]({ name: cmd.name, ...mapCommand(cmd)(sdm) as YamlCommandHandlerRegistration });
+                        };
+                    } else if (propKey === "addExtensionPacks") {
+                        return (...args) => {
+                            const packs = args as ExtensionPack[];
+                            target[propKey](...packs.map(p => ({ ...p, name: `${p.name}-${guid().slice(0, 7)}`})));
                         };
                     } else {
                         return target[propKey];
