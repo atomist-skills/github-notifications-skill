@@ -14,6 +14,7 @@ export const LifecycleConfig: ConfigurationMaker = async cfg => {
     const functionLifecycleSupport: ExtensionPack = {
         ...gls,
         configure: sdm => {
+            // TODO cd this could move to sdm/sdm-core
             const proxy = new Proxy<SoftwareDeliveryMachine>(sdm, {
                 get: (target, propKey) => {
                     if (propKey === "addCommand") {
