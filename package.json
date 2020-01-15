@@ -1,9 +1,9 @@
 {
     "dependencies": {
-        "@atomist/automation-client": "2.0.0-remove-index.20200107155146",
-        "@atomist/sdm": "2.0.0-remove-index.20200114085202",
-        "@atomist/sdm-core": "2.0.0-remove-index.20200114091343",
-        "@atomist/sdm-function-gcp": "0.1.0-master.20200111003057",
+        "@atomist/automation-client": "2.0.0-remove-index.20200115105959",
+        "@atomist/sdm": "2.0.0-remove-index.20200115150505",
+        "@atomist/sdm-core": "2.0.0-remove-index.20200115161005",
+        "@atomist/sdm-function-gcp": "0.1.0-master.20200115195247",
         "@atomist/sdm-pack-gcp": "0.1.0-remove-index.20200107172000",
         "@atomist/sdm-pack-lifecycle": "0.3.0-remove-index.20200110124325",
         "@atomist/sdm-pack-lifecycle-github": "0.2.0-remove-index.20200110125822"
