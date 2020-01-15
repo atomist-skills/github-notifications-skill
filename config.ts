@@ -3,7 +3,8 @@ import { githubLifecycleSupport } from "@atomist/sdm-pack-lifecycle-github";
 import * as _ from "lodash";
 
 export const LifecycleConfig: ConfigurationMaker = async cfg => {
-        /*const printCommandsExtensionPack: ExtensionPack = {
+        /*
+        const printCommandsExtensionPack: ExtensionPack = {
             ...metadata("print-commands"),
             configure: sdm => {
                 // Uncomment to populate atomist.yaml
@@ -28,7 +29,8 @@ export const LifecycleConfig: ConfigurationMaker = async cfg => {
             });
                  logger.info("\n" + JSON.stringify({ subscriptions: events }, undefined, 2));
             },
-        };*/
+        };
+        */
 
         _.set(cfg, "sdm.extensionPacks", [githubLifecycleSupport()]);
 
