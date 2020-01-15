@@ -21,6 +21,7 @@ skill:
     memory: 1024
     timeout: 60
  
+---
 commands:
   - name: ConfigureDirectMessageUserPreferences
     description: Configure DM preferences for the invoking user
@@ -30,7 +31,7 @@ commands:
     pattern: "^(?:configure lifecycle)$"
   - name: CancelGoalSets
     description: Cancel one or all pending goal sets of this SDM
-    pattern: "^(?:cancel goal sets atm-client-acdf2db5-acb3-4a34-aa2b-83c4da3473c3)(?=\\s--goalSetId='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:cancel goal sets atm-client-c3e00f43-b9db-4105-be61-b0b08975e9ac)(?=\\s--goalSetId='[\\s\\S]*?')*?.+$"
   - name: SubscribeToGoalSets
     description: Subscribe to goal sets
     pattern: "^(?:subscribe to goal sets)(?=\\s--login='[\\s\\S]*?')*?.+$"
@@ -39,7 +40,7 @@ commands:
     pattern: "^(?:unsubscribe from goal sets)(?=\\s--login='[\\s\\S]*?')*?.+$"
   - name: CreateChannel
     description: Create channel and link it to a repository
-    pattern: "^(?:link channel)(?=\\s--channel='[\\s\\S]*?')*?,(?=\\s--repo='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:link channel)(?=\\s--channel='[\\s\\S]*?')*?(?=\\s--repo='[\\s\\S]*?')*?.+$"
   - name: LinkRepo
     description: Link a repository and channel
     pattern: "^(?:repo|link repo|link repository)$"
@@ -54,28 +55,28 @@ commands:
     pattern: "^(?:add pr labels|add auto merge labels)$"
   - name: AssignGitHubPullRequestReviewer
     description: Assign GitHub pull request reviewer
-    pattern: "^(?:assign reviewer|assign github reviewer)(?=\\s--issue='[\\s\\S]*?')*?,(?=\\s--reviewer='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:assign reviewer|assign github reviewer)(?=\\s--issue='[\\s\\S]*?')*?(?=\\s--reviewer='[\\s\\S]*?')*?.+$"
   - name: AssignToMeGitHubIssue
     description: Assign a GitHub issue to the invoking user or provided assingee
-    pattern: "^(?:assign issue to me|assign github issue to me)(?=\\s--issue='[\\s\\S]*?')*?,(?=\\s--assignee='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:assign issue to me|assign github issue to me)(?=\\s--issue='[\\s\\S]*?')*?(?=\\s--assignee='[\\s\\S]*?')*?.+$"
   - name: CloseGitHubIssue
     description: Close a GitHub issue
     pattern: "^(?:close issue|close github issue)(?=\\s--issue='[\\s\\S]*?')*?.+$"
   - name: CommentGitHubIssue
     description: Comment on a GitHub issue
-    pattern: "^(?:comment issue|comment github issue)(?=\\s--issue='[\\s\\S]*?')*?,(?=\\s--comment='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:comment issue|comment github issue)(?=\\s--issue='[\\s\\S]*?')*?(?=\\s--comment='[\\s\\S]*?')*?.+$"
   - name: CreateGitHubIssue
     description: Create an issue on GitHub
-    pattern: "^(?:create issue|create github issue)(?=\\s--title='[\\s\\S]*?')*?,(?=\\s--body='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:create issue|create github issue)(?=\\s--title='[\\s\\S]*?')*?(?=\\s--body='[\\s\\S]*?')*?.+$"
   - name: CreateGitHubRelease
     description: Create a release of a repo on GitHub
-    pattern: "^(?:create release|create github release)(?=\\s--tag='[\\s\\S]*?')*?,(?=\\s--message='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:create release|create github release)(?=\\s--tag='[\\s\\S]*?')*?(?=\\s--message='[\\s\\S]*?')*?.+$"
   - name: CreateGitHubTag
     description: Create a tag on GitHub
-    pattern: "^(?:create tag|create github tag)(?=\\s--tag='[\\s\\S]*?')*?,(?=\\s--sha='[\\s\\S]*?')*?,(?=\\s--message='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:create tag|create github tag)(?=\\s--tag='[\\s\\S]*?')*?(?=\\s--sha='[\\s\\S]*?')*?(?=\\s--message='[\\s\\S]*?')*?.+$"
   - name: CreateRelatedGitHubIssue
     description: Create a related GitHub issue in a different org and/or repo
-    pattern: "^(?:related issue|related github issue)(?=\\s--targetOwner='[\\s\\S]*?')*?,(?=\\s--targetRepo='[\\s\\S]*?')*?,(?=\\s--issue='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:related issue|related github issue)(?=\\s--targetOwner='[\\s\\S]*?')*?(?=\\s--targetRepo='[\\s\\S]*?')*?(?=\\s--issue='[\\s\\S]*?')*?.+$"
   - name: DeleteGitHubBranch
     description: Deletes a GitHub branch
     pattern: "^(?:delete branch|delete github branch)(?=\\s--branch='[\\s\\S]*?')*?.+$"
@@ -93,34 +94,36 @@ commands:
     pattern: "^(?:auto rebase pr|auto rebase github pr)(?=\\s--issue='[\\s\\S]*?')*?.+$"
   - name: LinkRelatedGitHubIssue
     description: Link a related GitHub issue in a different org and/or repo
-    pattern: "^(?:link issue|link github issue)(?=\\s--targetOwner='[\\s\\S]*?')*?,(?=\\s--targetRepo='[\\s\\S]*?')*?,(?=\\s--targetIssue='[\\s\\S]*?')*?,(?=\\s--issue='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:link issue|link github issue)(?=\\s--targetOwner='[\\s\\S]*?')*?(?=\\s--targetRepo='[\\s\\S]*?')*?(?=\\s--targetIssue='[\\s\\S]*?')*?(?=\\s--issue='[\\s\\S]*?')*?.+$"
   - name: ListMyGitHubIssues
     description: List user's GitHub issues from mapped repositories
     pattern: "^(?:my issues|my github issues)(?=\\s--days='[\\s\\S]*?')*?.+$"
   - name: MergeGitHubPullRequest
     description: Merge a GitHub Pull Request
-    pattern: "^(?:merge pr|merge pullrequest|merge github pr|merge gihub pullrequest)(?=\\s--issue='[\\s\\S]*?')*?,(?=\\s--mergeMethod='[\\s\\S]*?')*?,(?=\\s--title='[\\s\\S]*?')*?,(?=\\s--message='[\\s\\S]*?')*?,(?=\\s--sha='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:merge pr|merge pullrequest|merge github pr|merge gihub pullrequest)(?=\\s--issue='[\\s\\S]*?')*?(?=\\s--mergeMethod='[\\s\\S]*?')*?(?=\\s--title='[\\s\\S]*?')*?(?=\\s--message='[\\s\\S]*?')*?(?=\\s--sha='[\\s\\S]*?')*?.+$"
   - name: MoveGitHubIssue
     description: Moves a GitHub issue to a different org and/or repo
-    pattern: "^(?:move issue|move github issue)(?=\\s--targetOwner='[\\s\\S]*?')*?,(?=\\s--targetRepo='[\\s\\S]*?')*?,(?=\\s--issue='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:move issue|move github issue)(?=\\s--targetOwner='[\\s\\S]*?')*?(?=\\s--targetRepo='[\\s\\S]*?')*?(?=\\s--issue='[\\s\\S]*?')*?.+$"
   - name: RaiseGitHubPullRequest
     description: Raise a GitHub pull request
-    pattern: "^(?:raise pr|raise pullrequest|raise github pr|raise github pullrequest)(?=\\s--title='[\\s\\S]*?')*?,(?=\\s--body='[\\s\\S]*?')*?,(?=\\s--base='[\\s\\S]*?')*?,(?=\\s--head='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:raise pr|raise pullrequest|raise github pr|raise github pullrequest)(?=\\s--title='[\\s\\S]*?')*?(?=\\s--body='[\\s\\S]*?')*?(?=\\s--base='[\\s\\S]*?')*?(?=\\s--head='[\\s\\S]*?')*?.+$"
   - name: ReactGitHubIssue
     description: React to a GitHub issue
-    pattern: "^(?:react issue|react github issue)(?=\\s--reaction='[\\s\\S]*?')*?,(?=\\s--issue='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:react issue|react github issue)(?=\\s--reaction='[\\s\\S]*?')*?(?=\\s--issue='[\\s\\S]*?')*?.+$"
   - name: ReactGitHubIssueComment
     description: React to a GitHub comment
-    pattern: "^(?:react issue comment|react github issue comment)(?=\\s--reaction='[\\s\\S]*?')*?,(?=\\s--comment='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:react issue comment|react github issue comment)(?=\\s--reaction='[\\s\\S]*?')*?(?=\\s--comment='[\\s\\S]*?')*?.+$"
   - name: ReopenGitHubIssue
     description: Reopen a GitHub issue
     pattern: "^(?:reopen issue|reopen github issue)(?=\\s--issue='[\\s\\S]*?')*?.+$"
   - name: SearchGitHubRepositoryIssues
     description: Search issues and pull requests in GitHub repositories
-    pattern: "^(?:search issues|search github issues)(?=\\s--q='[\\s\\S]*?')*?,(?=\\s--days='[\\s\\S]*?')*?,(?=\\s--perPage='[\\s\\S]*?')*?,(?=\\s--page='[\\s\\S]*?')*?,(?=\\s--id='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:search issues|search github issues)(?=\\s--q='[\\s\\S]*?')*?(?=\\s--days='[\\s\\S]*?')*?(?=\\s--perPage='[\\s\\S]*?')*?(?=\\s--page='[\\s\\S]*?')*?(?=\\s--id='[\\s\\S]*?')*?.+$"
   - name: ToggleLabelGitHubIssue
     description: Add label to or remove a label from a GitHub issue
-    pattern: "^(?:toggle issue label|toggle github issue label)(?=\\s--issue='[\\s\\S]*?')*?,(?=\\s--label='[\\s\\S]*?')*?.+$"
+    pattern: "^(?:toggle issue label|toggle github issue label)(?=\\s--issue='[\\s\\S]*?')*?(?=\\s--label='[\\s\\S]*?')*?.+$"
+
+
 
 subscriptions:
   - subscription NotifyPusherOnBuild { Build { _id status buildUrl name number provider
