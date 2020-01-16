@@ -1,6 +1,6 @@
 # `@atomist/lifecycle-github-skill`
 
-Atomist Skill to surface GitHub activity in Chat, eg Slack or Microsoft Teams
+Atomist Skill to surface GitHub activity in Chat, eg Slack or Microsoft Teams.
 
 ---
 
