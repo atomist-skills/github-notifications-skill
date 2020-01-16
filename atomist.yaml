@@ -15,8 +15,6 @@ skill:
   package:
     - use: '@atomist/package-sdm-skill/package'
     #- use: '@atomist/package-sdm-skill/bundle'
-    #  parameters:
-    #    minify: true
 
   runtime:
     memory: 1024
