@@ -1,5 +1,5 @@
 skill:
-  namr: '@atomist/github-lifecycle-skill'
+  name: '@atomist/github-lifecycle-skill'
   title: GitHub Chat Lifecycle
   version: 0.4.0
   author: Atomist
