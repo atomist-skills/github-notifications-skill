@@ -1,7 +1,7 @@
 skill:
-  id: '@atomist/github-lifecycle-skill'
-  name: GitHub Chat Lifecycle
-  version: 0.3.1
+  namr: '@atomist/github-lifecycle-skill'
+  title: GitHub Chat Lifecycle
+  version: 0.4.0
   author: Atomist
   description: Atomist Skill to surface GitHub activity in Chat, eg Slack or Microsoft Teams
   category:
