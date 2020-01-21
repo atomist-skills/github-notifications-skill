@@ -14,7 +14,7 @@ skill:
 
   package:
     - use: '@atomist/package-sdm-skill/package'
-    #- use: '@atomist/package-sdm-skill/bundle'
+    # - use: '@atomist/package-sdm-skill/bundle'
 
   runtime:
     memory: 1024
