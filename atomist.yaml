@@ -1,17 +1,26 @@
 
 skill:
   name: '@atomist/github-lifecycle-skill'
-  title: GitHub Chat Lifecycle
+  title: GitHub Notifications
   version: 0.4.0
   author: Atomist
-  description: Atomist Skill to surface GitHub activity in Chat, eg Slack or Microsoft Teams
+  description: Get smart, actionable notifications for GitHub
+  documentation: |
+    Sends notifications for GitHub activity to Slack channels that you configure in the Slack
+    integration for Atomist.  See all commit/push, issue, pull request and other activity in
+    neatly presented in Slack or Microsoft Teams messages. Configure the amount of information
+    you get in the notifications messages.  Notifications that are actionable, like reacting to,
+    commenting on or closing a GitHub issue, with buttons right in the notification. Welcome to
+    2020 (we've been doing this since 2016).  You're welcome.
+
+    Depends on the Slack or Microsoft Teams integration for Atomist.
   category:
     - productivity
     - chat
   license: Apache-2.0
   homepage: https://github.com/atomist/lifecycle-github-skill
   repository: https://github.com/atomist/lifecycle-github-skill.git
-  icon: https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/npm-512.png
+  icon: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
 
   package:
     - use: '@atomist/package-sdm-skill/package'
