@@ -1,6 +1,6 @@
 
 skill:
-  name: '@atomist/github-lifecycle-skill'
+  name: 'atomist/github-lifecycle-skill'
   title: GitHub Notifications
   version: 0.4.2
   author: Atomist
@@ -23,8 +23,7 @@ skill:
   icon: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
 
   package:
-    - use: '@atomist/package-sdm-skill/package'
-    # - use: '@atomist/package-sdm-skill/bundle'
+    - use: 'atomist/package-sdm-skill/package'
 
   runtime:
     memory: 1024
