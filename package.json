@@ -1,10 +1,9 @@
 {
     "dependencies": {
-        "@atomist/automation-client": "2.0.0-remove-index.20200117153458",
-        "@atomist/sdm": "2.0.0-remove-index.20200120225927",
-        "@atomist/sdm-core": "2.0.0-remove-index.20200130204647",
-        "@atomist/sdm-function-gcp": "0.1.0-master.20200130094424",
-        "@atomist/sdm-pack-gcp": "0.1.0-remove-index.20200107172000",
+        "@atomist/automation-client": "2.0.0-master.20200205130055",
+        "@atomist/sdm": "2.0.0-skill-output.20200208174656",
+        "@atomist/sdm-core": "2.0.0-skill-output.20200210130518",
+        "@atomist/sdm-function-gcp": "0.1.0-master.20200210131529",
         "@atomist/sdm-pack-lifecycle": "0.3.0-remove-index.20200110124325",
         "@atomist/sdm-pack-lifecycle-github": "0.2.0-remove-index.20200110125822"
     },
@@ -22,7 +21,7 @@
         "ts-node": "^8.6.0",
         "tslint": "^5.20.1",
         "typedoc": "^0.15.8",
-        "typescript": "^3.7.4"
+        "typescript": "^3.7.5"
     },
     "directories": {
         "test": "test"
