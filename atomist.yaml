@@ -2,7 +2,7 @@
 skill:
   name: 'atomist/github-lifecycle-skill'
   title: GitHub Notifications
-  version: 0.5.0
+  version: 0.5.1
   author: Atomist
   description: Get smart, actionable notifications for GitHub
   documentation: |
