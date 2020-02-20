@@ -1,6 +1,10 @@
 # `atomist/github-lifecycle-skill`
 
+<!---atomist-skill-readme:start--->
+
 Atomist Skill to surface GitHub activity in Chat, eg Slack or Microsoft Teams.
+
+<!---atomist-skill-readme:end--->
 
 ---
 

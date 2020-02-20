@@ -2,7 +2,7 @@
 skill:
   name: atomist/github-lifecycle-skill
   title: GitHub Notifications
-  version: 0.5.2
+  version: 1.0.0
   author: Atomist
   description: Get smart, actionable notifications for GitHub
   documentation: |
@@ -15,9 +15,9 @@ skill:
 
     Depends on the Slack or Microsoft Teams integration for Atomist.
   category:
-    - DEV_EX
-    - NOTIFICATIONS
-    - CODE_REVIEW
+    - dev_ex
+    - notifications
+    - code_review
   license: Apache-2.0
   homepage: https://github.com/atomist/lifecycle-github-skill
   repository: https://github.com/atomist/lifecycle-github-skill.git
