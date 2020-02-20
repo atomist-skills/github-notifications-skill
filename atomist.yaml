@@ -15,8 +15,9 @@ skill:
 
     Depends on the Slack or Microsoft Teams integration for Atomist.
   category:
-    - productivity
-    - chat
+    - DEV_EX
+    - NOTIFICATIONS
+    - CODE_REVIEW
   license: Apache-2.0
   homepage: https://github.com/atomist/lifecycle-github-skill
   repository: https://github.com/atomist/lifecycle-github-skill.git
