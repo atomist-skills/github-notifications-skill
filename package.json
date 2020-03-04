@@ -4,7 +4,7 @@
         "@atomist/sdm": "2.0.0-master.20200303103640",
         "@atomist/sdm-function-gcp": "0.1.0-master.20200304115352",
         "@atomist/sdm-pack-lifecycle": "0.3.0-remove-index.20200110124325",
-        "@atomist/sdm-pack-lifecycle-github": "0.2.0-remove-index.20200304073651"
+        "@atomist/sdm-pack-lifecycle-github": "0.3.0-remove-index.20200304160505"
     },
     "devDependencies": {
         "@google-cloud/functions-framework": "^1.3.2",
