@@ -6,21 +6,19 @@ skill:
   author: Atomist
   description: Get smart, actionable notifications for GitHub
   documentation: |
-    Sends notifications for GitHub activity to Slack channels that you configure in the Slack
-    integration for Atomist.  See all commit/push, issue, pull request and other activity in
-    neatly presented in Slack or Microsoft Teams messages. Configure the amount of information
-    you get in the notifications messages.  Notifications that are actionable, like reacting to,
-    commenting on or closing a GitHub issue, with buttons right in the notification. Welcome to
-    2020 (we've been doing this since 2016).  You're welcome.
+    Get rich notifications in Slack for activity in your GitHub repositories and harness the power of chatops.
 
-    Depends on the Slack or Microsoft Teams integration for Atomist.
+    - See all commit, push, issue and pull request activity in neatly presented in Slack messages
+    - Notifications are actionable — react to GitHub activity from Slack — comment on issues and PRs, close issues and merge PRs with buttons right in the Slack message
+    - Configure the amount of information you get in notification messages
+
   category:
     - dev_ex
     - notifications
     - code_review
   license: Apache-2.0
-  homepage: https://github.com/atomist/lifecycle-github-skill
-  repository: https://github.com/atomist/lifecycle-github-skill.git
+  homepage: https://github.com/atomist-skills/github-lifecycle-skill
+  repository: https://github.com/atomist-skills/github-lifecycle-skill.git
   icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIiB2aWV3Qm94PSIwIDAgMTYgMTYiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTggMEMzLjU4IDAgMCAzLjU4IDAgOGMwIDMuNTQgMi4yOSA2LjUzIDUuNDcgNy41OS40LjA3LjU1LS4xNy41NS0uMzggMC0uMTktLjAxLS44Mi0uMDEtMS40OS0yLjAxLjM3LTIuNTMtLjQ5LTIuNjktLjk0LS4wOS0uMjMtLjQ4LS45NC0uODItMS4xMy0uMjgtLjE1LS42OC0uNTItLjAxLS41My42My0uMDEgMS4wOC41OCAxLjIzLjgyLjcyIDEuMjEgMS44Ny44NyAyLjMzLjY2LjA3LS41Mi4yOC0uODcuNTEtMS4wNy0xLjc4LS4yLTMuNjQtLjg5LTMuNjQtMy45NSAwLS44Ny4zMS0xLjU5LjgyLTIuMTUtLjA4LS4yLS4zNi0xLjAyLjA4LTIuMTIgMCAwIC42Ny0uMjEgMi4yLjgyLjY0LS4xOCAxLjMyLS4yNyAyLS4yNy42OCAwIDEuMzYuMDkgMiAuMjcgMS41My0xLjA0IDIuMi0uODIgMi4yLS44Mi40NCAxLjEuMTYgMS45Mi4wOCAyLjEyLjUxLjU2LjgyIDEuMjcuODIgMi4xNSAwIDMuMDctMS44NyAzLjc1LTMuNjUgMy45NS4yOS4yNS41NC43My41NCAxLjQ4IDAgMS4wNy0uMDEgMS45My0uMDEgMi4yIDAgLjIxLjE1LjQ2LjU1LjM4QTguMDEzIDguMDEzIDAgMCAwIDE2IDhjMC00LjQyLTMuNTgtOC04LTh6Ii8+PC9zdmc+
 
   package:
@@ -32,100 +30,100 @@ skill:
            
 commands:
   - name: ConfigureDirectMessageUserPreferences
-    description: Configure DM preferences for the invoking user
+    description: Configure your personal Direct Message preferences
     pattern: "^(?:configure\\s+direct\\s+messages|configure\\s+dms|configure\\s+dm\\s+preferences)$"
   - name: ConfigureLifecyclePreferences
-    description: Configure lifecycle actions for the current channel
+    description: Configure notification preferences for the current channel
     pattern: "^(?:configure\\s+lifecycle)$"
-  - name: SubscribeToGoalSets
-    description: Subscribe to goal sets
-    pattern: ^(?:subscribe\s+to\s+goal\s+sets)(?:\s+--(?:login)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
-  - name: UnscribeFromGoalSets
-    description: Unsubscribe from goal sets
-    pattern: ^(?:unsubscribe\s+from\s+goal\s+sets)(?:\s+--(?:login)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
+#  - name: SubscribeToGoalSets
+#    description: Subscribe to goal sets
+#    pattern: ^(?:subscribe\s+to\s+goal\s+sets)(?:\s+--(?:login)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
+#  - name: UnscribeFromGoalSets
+#    description: Unsubscribe from goal sets
+#    pattern: ^(?:unsubscribe\s+from\s+goal\s+sets)(?:\s+--(?:login)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: CreateChannel
-    description: Create channel and link it to a repository
+    description: Create a channel and link it to a repository
     pattern: ^(?:link\s+channel)(?:\s+--(?:channel|repo)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: LinkRepo
     description: Link a repository and channel
     pattern: "^(?:repo|link\\s+repo|link\\s+repository)$"
   - name: ListRepoLinks
-    description: View repos linked to this channel and optionally unlink them
+    description: Show repositories linked to this channel and optionally unlink them
     pattern: "^(?:repos|repositories)$"
   - name: UnlinkRepo
-    description: Unlink a repository and channel
+    description: Unlink a repository and a channel
     pattern: "^(?:unlink\\s+repo|unlink\\s+repository)$"
   - name: AddGitHubPullRequestAutoLabels
-    description: Add Pull Request auto merge and rebase labels
+    description: Add Auto-merge pull request and Auto-rebase labels
     pattern: "^(?:add\\s+pr\\s+labels|add\\s+auto\\s+merge\\s+labels)$"
   - name: AssignGitHubPullRequestReviewer
-    description: Assign GitHub pull request reviewer
+    description: Assign a reviewer to a pull request
     pattern: ^(?:assign\s+reviewer|assign\s+github\s+reviewer)(?:\s+--(?:issue|reviewer)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: AssignToMeGitHubIssue
-    description: Assign a GitHub issue to the invoking user or provided assingee
+    description: Assign an issue to me or another named user
     pattern: ^(?:assign\s+issue\s+to\s+me|assign\s+github\s+issue\s+to\s+me)(?:\s+--(?:issue|assignee)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: CloseGitHubIssue
-    description: Close a GitHub issue
+    description: Close an issue
     pattern: ^(?:close\s+issue|close\s+github\s+issue)(?:\s+--(?:issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: CommentGitHubIssue
-    description: Comment on a GitHub issue
+    description: Comment on an issue
     pattern: ^(?:comment\s+issue|comment\s+github\s+issue)(?:\s+--(?:issue|comment)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: CreateGitHubIssue
-    description: Create an issue on GitHub
+    description: Create a new issue
     pattern: ^(?:create\s+issue|create\s+github\s+issue)(?:\s+--(?:title|body)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: CreateGitHubRelease
-    description: Create a release of a repo on GitHub
+    description: Create a release of a repository
     pattern: ^(?:create\s+release|create\s+github\s+release)(?:\s+--(?:tag|message)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: CreateGitHubTag
-    description: Create a tag on GitHub
+    description: Create a tag
     pattern: ^(?:create\s+tag|create\s+github\s+tag)(?:\s+--(?:tag|sha|message)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: CreateRelatedGitHubIssue
-    description: Create a related GitHub issue in a different org and/or repo
+    description: Create a new issue in a different repository related to an issue in a selected repository
     pattern: ^(?:related\s+issue|related\s+github\s+issue)(?:\s+--(?:targetOwner|targetRepo|issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: DeleteGitHubBranch
-    description: Deletes a GitHub branch
+    description: Deletes a branch
     pattern: ^(?:delete\s+branch|delete\s+github\s+branch)(?:\s+--(?:branch)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: DisplayGitHubIssue
-    description: Display an issue on GitHub
+    description: Display an issue
     pattern: ^(?:show\s+issue|show\s+github\s+issue)(?:\s+--(?:issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: DisplayGitHubPullRequest
-    description: Display a pull request on GitHub
+    description: Display a pull request
     pattern: ^(?:show\s+pull\s+request|show\s+pr|show\s+github\s+pr|show\s+github\s+pull\s+request)(?:\s+--(?:issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: EnableGitHubPullRequestAutoMerge
-    description: Enable Pull Request auto merge
+    description: Enable auto-merge for pull requests
     pattern: ^(?:auto\s+merge\s+pr|auto\s+merge\s+github\s+pr)(?:\s+--(?:issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: EnableGitHubPullRequestAutoRebase
-    description: Enable Pull Request auto rebase
+    description: Enable auto-rebase for pull requests
     pattern: ^(?:auto\s+rebase\s+pr|auto\s+rebase\s+github\s+pr)(?:\s+--(?:issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: LinkRelatedGitHubIssue
-    description: Link a related GitHub issue in a different org and/or repo
+    description: Link a related issue to a different repository
     pattern: ^(?:link\s+issue|link\s+github\s+issue)(?:\s+--(?:targetOwner|targetRepo|targetIssue|issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: ListMyGitHubIssues
-    description: List user's GitHub issues from mapped repositories
+    description: List your issues from linked repositories
     pattern: ^(?:my\s+issues|my\s+github\s+issues)(?:\s+--(?:days)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: MergeGitHubPullRequest
-    description: Merge a GitHub Pull Request
+    description: Merge a pull request
     pattern: ^(?:merge\s+pr|merge\s+pullrequest|merge\s+github\s+pr|merge\s+gihub\s+pullrequest)(?:\s+--(?:issue|mergeMethod|title|message|sha)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: MoveGitHubIssue
-    description: Moves a GitHub issue to a different org and/or repo
+    description: Moves an issue to a different repository
     pattern: ^(?:move\s+issue|move\s+github\s+issue)(?:\s+--(?:targetOwner|targetRepo|issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: RaiseGitHubPullRequest
-    description: Raise a GitHub pull request
+    description: Raise a pull request
     pattern: ^(?:raise\s+pr|raise\s+pullrequest|raise\s+github\s+pr|raise\s+github\s+pullrequest)(?:\s+--(?:title|body|base|head)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: ReactGitHubIssue
-    description: React to a GitHub issue
+    description: Add a reaction to an issue
     pattern: ^(?:react\s+issue|react\s+github\s+issue)(?:\s+--(?:reaction|issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: ReactGitHubIssueComment
-    description: React to a GitHub comment
+    description: Add a reaction to an issue comment
     pattern: ^(?:react\s+issue\s+comment|react\s+github\s+issue\s+comment)(?:\s+--(?:reaction|comment)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: ReopenGitHubIssue
-    description: Reopen a GitHub issue
+    description: Reopen an issue
     pattern: ^(?:reopen\s+issue|reopen\s+github\s+issue)(?:\s+--(?:issue)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: SearchGitHubRepositoryIssues
-    description: Search issues and pull requests in GitHub repositories
+    description: Search issues and pull requests
     pattern: ^(?:search\s+issues|search\s+github\s+issues)(?:\s+--(?:q|days|perPage|page|id)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
   - name: ToggleLabelGitHubIssue
-    description: Add label to or remove a label from a GitHub issue
+    description: Add or remove an issue label
     pattern: ^(?:toggle\s+issue\s+label|toggle\s+github\s+issue\s+label)(?:\s+--(?:issue|label)=(?:'[^']*?'|"[^"]*?"|[\w]*?))*$
 
 subscriptions:
