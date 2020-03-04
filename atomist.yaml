@@ -1,6 +1,6 @@
 
 skill:
-  name: atomist/github-lifecycle-skill
+  name: atomist/github-notifications-skill
   title: GitHub Notifications
   version: 1.0.3
   author: Atomist
