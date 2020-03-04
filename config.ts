@@ -1,5 +1,5 @@
-import { ConfigurationMaker } from "@atomist/sdm-core/lib/machine/yaml/configureYaml";
 import { githubLifecycleSupport } from "@atomist/sdm-pack-lifecycle-github";
+import { ConfigurationMaker } from "@atomist/sdm/lib/core/machine/yaml/configureYaml";
 import * as _ from "lodash";
 
 export const LifecycleConfig: ConfigurationMaker = async cfg => {
