@@ -1098,8 +1098,6 @@ subscriptions:
     targets { type name sha data displayName displayValue displayType } differences
     { type name sha data displayName displayValue displayType } aspects { type displayType
     manageable } } } timestamp } timestamp }}
-  - subscription RebaseOnPush { Push { after { sha author { login } } commits { sha
-    message } repo { owner name } branch }}
   - subscription PushToSimplePushLifecycle { Push { id _id builds { buildId buildUrl
     name provider status commit { sha } timestamp workflow { id name provider config
     builds { jobId jobName finishedAt startedAt status id buildUrl } } } before { sha

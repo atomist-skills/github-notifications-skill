@@ -3,7 +3,7 @@
         "@atomist/automation-client": "2.0.0-master.20200304193955",
         "@atomist/sdm": "2.0.0-master.20200303103640",
         "@atomist/sdm-function-gcp": "0.1.0-master.20200304115352",
-        "@atomist/sdm-pack-lifecycle": "0.3.0-remove-index.20200304191853",
+        "@atomist/sdm-pack-lifecycle": "0.3.0-remove-index.20200305082336",
         "@atomist/sdm-pack-lifecycle-github": "0.3.0-remove-index.20200304194829"
     },
     "devDependencies": {
