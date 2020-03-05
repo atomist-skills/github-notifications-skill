@@ -1,5 +1,5 @@
 # `atomist/github-lifecycle-skill`
-
+ 
 <!---atomist-skill-readme:start--->
 
 Enabling this skill automatically turns on notifications and provides commands for GitHub activities from Slack. This skill uses the Atomist Slack integration, which needs to be configured before using the skill. To choose channels to receive notifications from repositories, link them on the **Manage > Integrations > Slack** page. For more information about the Slack integration and channel repository linking, see [the documentation](https://docs.atomist.com/user/slack/).
