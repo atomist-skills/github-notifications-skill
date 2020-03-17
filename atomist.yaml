@@ -2,7 +2,7 @@
 skill:
   name: atomist/github-notifications-skill
   title: GitHub Notifications
-  version: 2.2.0
+  version: 2.2.1
   author: Atomist
   description: Get smart, actionable notifications for GitHub
   documentation: |
