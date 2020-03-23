@@ -23,9 +23,7 @@ skill:
   video: https://images.atomist.com/skills/github-notifications.gif
   
   package:
-    - use: atomist/package-sdm-skill/package
-      parameters:
-        dependencies: keep
+    use: atomist/package-npm-skill
 
   runtime:
     memory: 1024
