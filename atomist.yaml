@@ -28,6 +28,7 @@ skill:
   runtime:
     memory: 1024
     timeout: 60
+    entry_point: sdm
            
 commands:
   - name: ConfigureDirectMessageUserPreferences
