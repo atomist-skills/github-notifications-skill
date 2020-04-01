@@ -1,9 +1,9 @@
 {
     "dependencies": {
         "@atomist/automation-client": "2.0.0-master.20200311165330",
-        "@atomist/sdm": "2.0.0-master.20200325193634",
+        "@atomist/sdm": "2.0.0-master.20200330164246",
         "@atomist/sdm-function-gcp": "0.1.0-master.20200317174921",
-        "@atomist/sdm-pack-lifecycle": "0.3.0-master.20200311174235",
+        "@atomist/sdm-pack-lifecycle": "0.3.0-master.20200401141120",
         "@atomist/sdm-pack-lifecycle-github": "0.3.0-master.20200311175857"
     },
     "devDependencies": {
