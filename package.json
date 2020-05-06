@@ -3,8 +3,8 @@
         "@atomist/automation-client": "2.0.0-master.20200311165330",
         "@atomist/sdm": "2.0.0-master.20200330164246",
         "@atomist/sdm-function-gcp": "0.1.0-master.20200317174921",
-        "@atomist/sdm-pack-lifecycle": "0.3.0-master.20200401141120",
-        "@atomist/sdm-pack-lifecycle-github": "0.3.0-master.20200403121426"
+        "@atomist/sdm-pack-lifecycle": "0.3.0-master.20200506172800",
+        "@atomist/sdm-pack-lifecycle-github": "0.3.0-master.20200505162740"
     },
     "devDependencies": {
         "@google-cloud/functions-framework": "^1.5.0",
