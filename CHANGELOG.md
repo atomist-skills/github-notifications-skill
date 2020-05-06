@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.3.1...HEAD)
 
+### Changed
+
+-   Update lifecycle packs. [1b7f128](https://github.com/atomist-skills/github-notifications-skill/commit/1b7f1286e6dce56d4e036a650e9a73d15a774a30)
+
 ## [2.3.1](https://github.com/atomist-skills/github-notifications-skill/compare/2.3.0...2.3.1) - 2020-05-01
 
 ## [2.3.0](https://github.com/atomist-skills/github-notifications-skill/compare/2.2.5...2.3.0) - 2020-05-01
