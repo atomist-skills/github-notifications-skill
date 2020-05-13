@@ -1,4 +1,5 @@
 {
+    "license": "Apache-2.0",
     "dependencies": {
         "@atomist/automation-client": "2.0.0-master.20200311165330",
         "@atomist/sdm": "2.0.0-master.20200513070623",
