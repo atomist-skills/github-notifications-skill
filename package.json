@@ -4,7 +4,7 @@
         "@atomist/automation-client": "2.0.0-master.20200429110358",
         "@atomist/sdm": "2.0.0-master.20200513070623",
         "@atomist/sdm-function-gcp": "0.1.0-master.20200317174921",
-        "@atomist/sdm-pack-lifecycle": "0.4.0-master.20200515115902",
+        "@atomist/sdm-pack-lifecycle": "0.4.0-master.20200515122307",
         "@atomist/sdm-pack-lifecycle-github": "0.4.0-master.20200515104423"
     },
     "devDependencies": {
