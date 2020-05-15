@@ -1,20 +1,11 @@
-import { metadataFromInstance } from "@atomist/automation-client/lib/internal/metadata/metadataReading";
-import {
-    CommandHandlerMetadata,
-    EventHandlerMetadata,
-} from "@atomist/automation-client/lib/metadata/automationMetadata";
-import { toFactory } from "@atomist/automation-client/lib/util/constructionUtils";
-import { logger } from "@atomist/automation-client/lib/util/logger";
 import { lifecycleSupport } from "@atomist/sdm-pack-lifecycle";
 import { DefaultGitHubLifecycleOptions } from "@atomist/sdm-pack-lifecycle-github/lib/githubLifecycleSupport";
-import { metadata } from "@atomist/sdm/lib/api-helper/misc/extensionPack";
-import { ExtensionPack } from "@atomist/sdm/lib/api/machine/ExtensionPack";
 import { ConfigurationMaker } from "@atomist/sdm/lib/core/machine/yaml/configureYaml";
 import * as _ from "lodash";
 
 export const LifecycleConfig: ConfigurationMaker = async cfg => {
 
-    const printCommandsExtensionPack: ExtensionPack = {
+    /* const printCommandsExtensionPack: ExtensionPack = {
         ...metadata("print-commands"),
         configure: sdm => {
             // Uncomment to populate atomist.yaml
@@ -41,14 +32,14 @@ export const LifecycleConfig: ConfigurationMaker = async cfg => {
 
              throw new Error("");
         },
-    };
+    }; */
 
     const options = DefaultGitHubLifecycleOptions;
     delete options.push.web;
     delete options.issue.web;
     delete options.pullRequest.web;
 
-    _.set(cfg, "sdm.extensionPacks", [lifecycleSupport(DefaultGitHubLifecycleOptions), printCommandsExtensionPack]);
+    _.set(cfg, "sdm.extensionPacks", [lifecycleSupport(DefaultGitHubLifecycleOptions)]);
 
     return cfg as any;
 };
