@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.3.4...HEAD)
 
+### Added
+
+-   Add GitHub checks support to push and pull request notifications. [#10](https://github.com/atomist-skills/github-notifications-skill/issues/10)
+
 ## [2.3.4](https://github.com/atomist-skills/github-notifications-skill/compare/2.3.3...2.3.4) - 2020-05-13
 
 ## [2.3.3](https://github.com/atomist-skills/github-notifications-skill/compare/2.3.2...2.3.3) - 2020-05-06
