@@ -22,6 +22,7 @@ skill:
   video: https://images.atomist.com/skills/github-notifications.gif
   max_configurations: 1
 
+         
   package:
     use: atomist/package-npm-skill
 
