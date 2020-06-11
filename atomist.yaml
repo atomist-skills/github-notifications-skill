@@ -12,9 +12,8 @@ skill:
     - Notifications are actionable — react to GitHub activity from Slack — comment on issues and PRs, close issues and merge PRs with buttons right in the Slack message
     - Configure the amount of information you get in notification messages
   category:
-    - dev_ex
+    - devex
     - notifications
-    - code_review
   license: Apache-2.0
   homepage: https://github.com/atomist-skills/github-notifications-skill
   repository: https://github.com/atomist-skills/github-notifications-skill.git
