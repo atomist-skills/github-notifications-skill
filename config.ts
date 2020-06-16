@@ -4,7 +4,6 @@ import { ConfigurationMaker } from "@atomist/sdm/lib/core/machine/yaml/configure
 import * as _ from "lodash";
 
 export const LifecycleConfig: ConfigurationMaker = async cfg => {
-
     /* const printCommandsExtensionPack: ExtensionPack = {
         ...metadata("print-commands"),
         configure: sdm => {
