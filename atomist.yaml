@@ -6,9 +6,9 @@ skill:
   author: Atomist
   description: Get smart, actionable notifications for GitHub
   documentation: |
-    Get rich notifications in Slack for activity in your GitHub repositories and harness the power of chatops.
+    Get rich notifications in chat for activity in your GitHub repositories and harness the power of chatops.
 
-    - See all commit, push, issue and pull request activity in neatly presented in Slack messages
+    - See all commit, push, issue and pull request activity in neatly presented in chat messages
     - Notifications are actionable — react to GitHub activity from Slack — comment on issues and PRs, close issues and merge PRs with buttons right in the Slack message
     - Configure the amount of information you get in notification messages
   category:
@@ -37,8 +37,8 @@ resource_providers:
     min_required: 1
     max_allowed: 1
   - name: slack
-    description: Slack
-    type_name: SlackResourceProvider
+    description: Chat
+    type_name: ChatProvider
     min_required: 1
     max_allowed: 1
 
