@@ -4,7 +4,7 @@ skill:
   title: GitHub Notifications
   version: 2.4.4
   author: Atomist
-  description: Get smart, actionable notifications for GitHub
+  description: Get actionable visibility into your GitHub activity right in chat
   documentation: |
     Get rich notifications in chat for activity in your GitHub repositories and harness the power of chatops.
 
