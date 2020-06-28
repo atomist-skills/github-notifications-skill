@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Should not be Slack-only. [#12](https://github.com/atomist-skills/github-notifications-skill/issues/12)
 -   Edits to Chat wording. [#13](https://github.com/atomist-skills/github-notifications-skill/issues/13)
+-   Update description. [084ac59](https://github.com/atomist-skills/github-notifications-skill/commit/084ac59313505f433a36aa9207854d8c4a57dd40)
 
 ## [2.4.2](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.1...2.4.2) - 2020-06-11
 
