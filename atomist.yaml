@@ -2,7 +2,7 @@
 skill:
   name: atomist/github-notifications-skill
   title: GitHub Notifications
-  version: 2.4.4
+  version: 2.4.5
   author: Atomist
   description: Get actionable visibility into your GitHub activity right in chat
   documentation: |
