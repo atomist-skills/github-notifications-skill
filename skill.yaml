@@ -850,4 +850,3 @@ skill:
       { id } } } } }}
     - subscription UpdateOnJobTask { AtmJobTask { job { id data name description owner
       state createdAt updatedAt completedAt jobCount completedCount } }}
-
