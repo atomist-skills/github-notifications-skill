@@ -3,3 +3,5 @@
 *.MD
 tsconfig.json
 tslint.json
+/docs/
+
