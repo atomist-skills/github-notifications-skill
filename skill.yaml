@@ -59,7 +59,6 @@ skill:
       description: Chat
       minRequired: 1
 
-
   commands:
     - name: ConfigureDirectMessageUserPreferences
       description: Configure your personal Direct Message preferences
@@ -158,16 +157,16 @@ skill:
       { name value } chatTeam { id preferences { name value } } } } } } repo { name owner
       org { provider { url apiUrl providerId providerType private } } channels { name
       channelId } } }}
-    - 'subscription BranchToBranchLifecycle { Branch { _id pullRequests(first: 1, orderBy:
+    - "subscription BranchToBranchLifecycle { Branch { _id pullRequests(first: 1, orderBy:
       [timestamp_desc]) { merged } commit { sha message } name repo { name owner defaultBranch
       channels { name team { id name } } org { team { id chatTeams { id preferences {
       name value } } } provider { id apiUrl url providerId providerType private } } }
-      timestamp }}'
-    - 'subscription DeletedBranchToBranchLifecycle { DeletedBranch { _id pullRequests(first:
+      timestamp }}"
+    - "subscription DeletedBranchToBranchLifecycle { DeletedBranch { _id pullRequests(first:
       1, orderBy: [timestamp_desc]) { merged } commit { sha message } name repo { name
       owner defaultBranch channels { name team { id name } } org { team { id chatTeams
       { id preferences { name value } } } provider { id apiUrl url providerId providerType
-      private } } } timestamp }}'
+      private } } } timestamp }}"
     - subscription PullRequestToBranchLifecycle { PullRequest { branch @required { id
       } }}
     - 'subscription BotJoinedChannel { UserJoinedChannel { user(isAtomistBot: "true")
@@ -217,8 +216,8 @@ skill:
       } } }}
     - subscription IssueRelationshipOnCommit { Commit { repo { name owner org { provider
       { providerId providerType private } } } sha message }}
-    - 'subscription CommentOnRelatedIssueClosed { Issue(state: closed) { number repo {
-      owner name } closedBy { login } }}'
+    - "subscription CommentOnRelatedIssueClosed { Issue(state: closed) { number repo {
+      owner name } closedBy { login } }}"
     - subscription NotifyMentionedOnIssue { Issue { _id name number title body state lastAssignedBy
       { login } openedBy { login person { chatId { screenName preferences { name value
       } chatTeam { id } } } } closedBy { login person { chatId { screenName preferences
@@ -244,7 +243,7 @@ skill:
       person { chatId { screenName preferences { name value } chatTeam { id } } } } repo
       { name owner labels { name } channels { name channelId } org { provider { apiUrl
       gitUrl url providerId providerType private } } } }}
-    - 'subscription BranchToPullRequestLifecycle { Branch { _id pullRequests(first: 1)
+    - "subscription BranchToPullRequestLifecycle { Branch { _id pullRequests(first: 1)
       { _id number name body state merged timestamp title baseBranchName branchName createdAt
       mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
       } chatId { screenName id } } } closedAt branch { name timestamp } author { login
@@ -262,8 +261,8 @@ skill:
       state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
       allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
       providerId providerType private } team { id chatTeams { id preferences { name value
-      } } } } } } }}'
-    - 'subscription CheckToPullRequestLifecycle { CheckRun { checkSuite { pullRequests
+      } } } } } } }}"
+    - "subscription CheckToPullRequestLifecycle { CheckRun { checkSuite { pullRequests
       { _id number name body state merged timestamp title baseBranchName branchName createdAt
       mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
       } chatId { screenName id } } } closedAt branch { name timestamp } author { login
@@ -281,8 +280,8 @@ skill:
       state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
       allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
       providerId providerType private } team { id chatTeams { id preferences { name value
-      } } } } } } } }}'
-    - 'subscription CommentToPullRequestLifecycle { Comment { _id pullRequest { _id number
+      } } } } } } } }}"
+    - "subscription CommentToPullRequestLifecycle { Comment { _id pullRequest { _id number
       name body state merged timestamp title baseBranchName branchName createdAt mergedAt
       head { sha message } lastAssignedBy { login name person { gitHubId { login } chatId
       { screenName id } } } closedAt branch { name timestamp } author { login name person
@@ -300,8 +299,8 @@ skill:
       { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
       allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
       providerId providerType private } team { id chatTeams { id preferences { name value
-      } } } } } } }}'
-    - 'subscription CommitToPullRequestLifecycle { Commit { _id pullRequests(first: 1)
+      } } } } } } }}"
+    - "subscription CommitToPullRequestLifecycle { Commit { _id pullRequests(first: 1)
       { _id number name body state merged timestamp title baseBranchName branchName createdAt
       mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
       } chatId { screenName id } } } closedAt branch { name timestamp } author { login
@@ -319,8 +318,8 @@ skill:
       state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
       allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
       providerId providerType private } team { id chatTeams { id preferences { name value
-      } } } } } } }}'
-    - 'subscription DeletedBranchToPullRequestLifecycle { DeletedBranch { id pullRequests(first:
+      } } } } } } }}"
+    - "subscription DeletedBranchToPullRequestLifecycle { DeletedBranch { id pullRequests(first:
       1) { _id number name body state merged timestamp title baseBranchName branchName
       createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
       { login } chatId { screenName id } } } closedAt branch { name timestamp } author
@@ -338,8 +337,8 @@ skill:
       state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
       allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
       providerId providerType private } team { id chatTeams { id preferences { name value
-      } } } } } } }}'
-    - 'subscription PullRequestToPullRequestLifecycle { PullRequest { _id number name
+      } } } } } } }}"
+    - "subscription PullRequestToPullRequestLifecycle { PullRequest { _id number name
       body state merged timestamp title baseBranchName branchName createdAt mergedAt head
       { sha message } lastAssignedBy { login name person { gitHubId { login } chatId {
       screenName id } } } closedAt branch { name timestamp } author { login name person
@@ -357,8 +356,8 @@ skill:
       { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
       allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
       providerId providerType private } team { id chatTeams { id preferences { name value
-      } } } } } }}'
-    - 'subscription ReviewToPullRequestLifecycle { Review { _id pullRequest { _id number
+      } } } } } }}"
+    - "subscription ReviewToPullRequestLifecycle { Review { _id pullRequest { _id number
       name body state merged timestamp title baseBranchName branchName createdAt mergedAt
       head { sha message } lastAssignedBy { login name person { gitHubId { login } chatId
       { screenName id } } } closedAt branch { name timestamp } author { login name person
@@ -376,8 +375,8 @@ skill:
       { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
       allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
       providerId providerType private } team { id chatTeams { id preferences { name value
-      } } } } } } }}'
-    - 'subscription StatusToPullRequestLifecycle { Status { _id commit { pullRequests(first:
+      } } } } } } }}"
+    - "subscription StatusToPullRequestLifecycle { Status { _id commit { pullRequests(first:
       1) { _id number name body state merged timestamp title baseBranchName branchName
       createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
       { login } chatId { screenName id } } } closedAt branch { name timestamp } author
@@ -395,7 +394,7 @@ skill:
       state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
       allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
       providerId providerType private } team { id chatTeams { id preferences { name value
-      } } } } } } } }}'
+      } } } } } } } }}"
     - subscription NotifyReviewerOnPush { Push { branch repo { name owner org { owner
       provider { apiUrl url providerId providerType private } } } commits { author { login
       } sha pullRequests { author { login } name number title body state merged reviewers
