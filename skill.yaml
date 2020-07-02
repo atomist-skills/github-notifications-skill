@@ -159,21 +159,21 @@ skill:
       org { provider { url apiUrl providerId providerType private } } channels { name
       channelId } } }}
     - 'subscription BranchToBranchLifecycle { Branch { _id pullRequests(first: 1, orderBy:
-    [timestamp_desc]) { merged } commit { sha message } name repo { name owner defaultBranch
-    channels { name team { id name } } org { team { id chatTeams { id preferences {
-    name value } } } provider { id apiUrl url providerId providerType private } } }
-    timestamp }}'
+      [timestamp_desc]) { merged } commit { sha message } name repo { name owner defaultBranch
+      channels { name team { id name } } org { team { id chatTeams { id preferences {
+      name value } } } provider { id apiUrl url providerId providerType private } } }
+      timestamp }}'
     - 'subscription DeletedBranchToBranchLifecycle { DeletedBranch { _id pullRequests(first:
-    1, orderBy: [timestamp_desc]) { merged } commit { sha message } name repo { name
-    owner defaultBranch channels { name team { id name } } org { team { id chatTeams
-    { id preferences { name value } } } provider { id apiUrl url providerId providerType
-    private } } } timestamp }}'
+      1, orderBy: [timestamp_desc]) { merged } commit { sha message } name repo { name
+      owner defaultBranch channels { name team { id name } } org { team { id chatTeams
+      { id preferences { name value } } } provider { id apiUrl url providerId providerType
+      private } } } timestamp }}'
     - subscription PullRequestToBranchLifecycle { PullRequest { branch @required { id
       } }}
     - 'subscription BotJoinedChannel { UserJoinedChannel { user(isAtomistBot: "true")
-    @required { isAtomistBot screenName userId } channel { botInvitedSelf channelId
-    name repos { name owner org { provider { url } } } team { id orgs { owner ownerType
-    provider { apiUrl providerId } repo { name owner } } } } }}'
+      @required { isAtomistBot screenName userId } channel { botInvitedSelf channelId
+      name repos { name owner org { provider { url } } } team { id orgs { owner ownerType
+      provider { apiUrl providerId } repo { name owner } } } } }}'
     - subscription ChannelLinkCreated { ChannelLink { channel { name normalizedName team
       { id } } repo { name owner defaultBranch org { ownerType provider { apiUrl url providerId
       providerType private } } } }}
@@ -218,7 +218,7 @@ skill:
     - subscription IssueRelationshipOnCommit { Commit { repo { name owner org { provider
       { providerId providerType private } } } sha message }}
     - 'subscription CommentOnRelatedIssueClosed { Issue(state: closed) { number repo {
-    owner name } closedBy { login } }}'
+      owner name } closedBy { login } }}'
     - subscription NotifyMentionedOnIssue { Issue { _id name number title body state lastAssignedBy
       { login } openedBy { login person { chatId { screenName preferences { name value
       } chatTeam { id } } } } closedBy { login person { chatId { screenName preferences
@@ -245,157 +245,157 @@ skill:
       { name owner labels { name } channels { name channelId } org { provider { apiUrl
       gitUrl url providerId providerType private } } } }}
     - 'subscription BranchToPullRequestLifecycle { Branch { _id pullRequests(first: 1)
-    { _id number name body state merged timestamp title baseBranchName branchName createdAt
-    mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
-    } chatId { screenName id } } } closedAt branch { name timestamp } author { login
-    name person { gitHubId { login } chatId { screenName id } } } merger { login name
-    person { gitHubId { login } chatId { screenName id } } } assignees { login name
-    person { gitHubId { login } chatId { screenName id } } } reviewers { login name
-    person { gitHubId { login } chatId { screenName id } } } labels { name } comments
-    { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
-    { address } tags { name release { name timestamp } } statuses { state description
-    context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
-    status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
-    person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
-    [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
-    orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
-    state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
-    allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
-    providerId providerType private } team { id chatTeams { id preferences { name value
-    } } } } } } }}'
+      { _id number name body state merged timestamp title baseBranchName branchName createdAt
+      mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
+      } chatId { screenName id } } } closedAt branch { name timestamp } author { login
+      name person { gitHubId { login } chatId { screenName id } } } merger { login name
+      person { gitHubId { login } chatId { screenName id } } } assignees { login name
+      person { gitHubId { login } chatId { screenName id } } } reviewers { login name
+      person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+      { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+      { address } tags { name release { name timestamp } } statuses { state description
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
+      person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
+      [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
+      orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
+      state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
+      allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
+      providerId providerType private } team { id chatTeams { id preferences { name value
+      } } } } } } }}'
     - 'subscription CheckToPullRequestLifecycle { CheckRun { checkSuite { pullRequests
-    { _id number name body state merged timestamp title baseBranchName branchName createdAt
-    mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
-    } chatId { screenName id } } } closedAt branch { name timestamp } author { login
-    name person { gitHubId { login } chatId { screenName id } } } merger { login name
-    person { gitHubId { login } chatId { screenName id } } } assignees { login name
-    person { gitHubId { login } chatId { screenName id } } } reviewers { login name
-    person { gitHubId { login } chatId { screenName id } } } labels { name } comments
-    { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
-    { address } tags { name release { name timestamp } } statuses { state description
-    context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
-    status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
-    person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
-    [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
-    orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
-    state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
-    allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
-    providerId providerType private } team { id chatTeams { id preferences { name value
-    } } } } } } } }}'
+      { _id number name body state merged timestamp title baseBranchName branchName createdAt
+      mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
+      } chatId { screenName id } } } closedAt branch { name timestamp } author { login
+      name person { gitHubId { login } chatId { screenName id } } } merger { login name
+      person { gitHubId { login } chatId { screenName id } } } assignees { login name
+      person { gitHubId { login } chatId { screenName id } } } reviewers { login name
+      person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+      { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+      { address } tags { name release { name timestamp } } statuses { state description
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
+      person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
+      [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
+      orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
+      state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
+      allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
+      providerId providerType private } team { id chatTeams { id preferences { name value
+      } } } } } } } }}'
     - 'subscription CommentToPullRequestLifecycle { Comment { _id pullRequest { _id number
-    name body state merged timestamp title baseBranchName branchName createdAt mergedAt
-    head { sha message } lastAssignedBy { login name person { gitHubId { login } chatId
-    { screenName id } } } closedAt branch { name timestamp } author { login name person
-    { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
-    { login } chatId { screenName id } } } assignees { login name person { gitHubId
-    { login } chatId { screenName id } } } reviewers { login name person { gitHubId
-    { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
-    10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
-    name release { name timestamp } } statuses { state description context targetUrl
-    timestamp } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
-    startedAt completedAt htmlUrl outputTitle } } author { login name person { gitHubId
-    { login } chatId { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc])
-    { name buildUrl buildId status timestamp } } builds(trigger: pull_request, orderBy:
-    [timestamp_desc]) { name buildUrl buildId status timestamp } reviews { state by
-    { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
-    allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
-    providerId providerType private } team { id chatTeams { id preferences { name value
-    } } } } } } }}'
+      name body state merged timestamp title baseBranchName branchName createdAt mergedAt
+      head { sha message } lastAssignedBy { login name person { gitHubId { login } chatId
+      { screenName id } } } closedAt branch { name timestamp } author { login name person
+      { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
+      { login } chatId { screenName id } } } assignees { login name person { gitHubId
+      { login } chatId { screenName id } } } reviewers { login name person { gitHubId
+      { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
+      10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
+      name release { name timestamp } } statuses { state description context targetUrl
+      timestamp } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      startedAt completedAt htmlUrl outputTitle } } author { login name person { gitHubId
+      { login } chatId { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc])
+      { name buildUrl buildId status timestamp } } builds(trigger: pull_request, orderBy:
+      [timestamp_desc]) { name buildUrl buildId status timestamp } reviews { state by
+      { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
+      allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
+      providerId providerType private } team { id chatTeams { id preferences { name value
+      } } } } } } }}'
     - 'subscription CommitToPullRequestLifecycle { Commit { _id pullRequests(first: 1)
-    { _id number name body state merged timestamp title baseBranchName branchName createdAt
-    mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
-    } chatId { screenName id } } } closedAt branch { name timestamp } author { login
-    name person { gitHubId { login } chatId { screenName id } } } merger { login name
-    person { gitHubId { login } chatId { screenName id } } } assignees { login name
-    person { gitHubId { login } chatId { screenName id } } } reviewers { login name
-    person { gitHubId { login } chatId { screenName id } } } labels { name } comments
-    { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
-    { address } tags { name release { name timestamp } } statuses { state description
-    context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
-    status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
-    person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
-    [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
-    orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
-    state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
-    allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
-    providerId providerType private } team { id chatTeams { id preferences { name value
-    } } } } } } }}'
+      { _id number name body state merged timestamp title baseBranchName branchName createdAt
+      mergedAt head { sha message } lastAssignedBy { login name person { gitHubId { login
+      } chatId { screenName id } } } closedAt branch { name timestamp } author { login
+      name person { gitHubId { login } chatId { screenName id } } } merger { login name
+      person { gitHubId { login } chatId { screenName id } } } assignees { login name
+      person { gitHubId { login } chatId { screenName id } } } reviewers { login name
+      person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+      { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+      { address } tags { name release { name timestamp } } statuses { state description
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
+      person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
+      [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
+      orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
+      state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
+      allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
+      providerId providerType private } team { id chatTeams { id preferences { name value
+      } } } } } } }}'
     - 'subscription DeletedBranchToPullRequestLifecycle { DeletedBranch { id pullRequests(first:
-    1) { _id number name body state merged timestamp title baseBranchName branchName
-    createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
-    { login } chatId { screenName id } } } closedAt branch { name timestamp } author
-    { login name person { gitHubId { login } chatId { screenName id } } } merger { login
-    name person { gitHubId { login } chatId { screenName id } } } assignees { login
-    name person { gitHubId { login } chatId { screenName id } } } reviewers { login
-    name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
-    { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
-    { address } tags { name release { name timestamp } } statuses { state description
-    context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
-    status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
-    person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
-    [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
-    orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
-    state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
-    allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
-    providerId providerType private } team { id chatTeams { id preferences { name value
-    } } } } } } }}'
+      1) { _id number name body state merged timestamp title baseBranchName branchName
+      createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
+      { login } chatId { screenName id } } } closedAt branch { name timestamp } author
+      { login name person { gitHubId { login } chatId { screenName id } } } merger { login
+      name person { gitHubId { login } chatId { screenName id } } } assignees { login
+      name person { gitHubId { login } chatId { screenName id } } } reviewers { login
+      name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+      { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+      { address } tags { name release { name timestamp } } statuses { state description
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
+      person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
+      [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
+      orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
+      state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
+      allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
+      providerId providerType private } team { id chatTeams { id preferences { name value
+      } } } } } } }}'
     - 'subscription PullRequestToPullRequestLifecycle { PullRequest { _id number name
-    body state merged timestamp title baseBranchName branchName createdAt mergedAt head
-    { sha message } lastAssignedBy { login name person { gitHubId { login } chatId {
-    screenName id } } } closedAt branch { name timestamp } author { login name person
-    { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
-    { login } chatId { screenName id } } } assignees { login name person { gitHubId
-    { login } chatId { screenName id } } } reviewers { login name person { gitHubId
-    { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
-    10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
-    name release { name timestamp } } statuses { state description context targetUrl
-    timestamp } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
-    startedAt completedAt htmlUrl outputTitle } } author { login name person { gitHubId
-    { login } chatId { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc])
-    { name buildUrl buildId status timestamp } } builds(trigger: pull_request, orderBy:
-    [timestamp_desc]) { name buildUrl buildId status timestamp } reviews { state by
-    { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
-    allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
-    providerId providerType private } team { id chatTeams { id preferences { name value
-    } } } } } }}'
+      body state merged timestamp title baseBranchName branchName createdAt mergedAt head
+      { sha message } lastAssignedBy { login name person { gitHubId { login } chatId {
+      screenName id } } } closedAt branch { name timestamp } author { login name person
+      { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
+      { login } chatId { screenName id } } } assignees { login name person { gitHubId
+      { login } chatId { screenName id } } } reviewers { login name person { gitHubId
+      { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
+      10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
+      name release { name timestamp } } statuses { state description context targetUrl
+      timestamp } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      startedAt completedAt htmlUrl outputTitle } } author { login name person { gitHubId
+      { login } chatId { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc])
+      { name buildUrl buildId status timestamp } } builds(trigger: pull_request, orderBy:
+      [timestamp_desc]) { name buildUrl buildId status timestamp } reviews { state by
+      { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
+      allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
+      providerId providerType private } team { id chatTeams { id preferences { name value
+      } } } } } }}'
     - 'subscription ReviewToPullRequestLifecycle { Review { _id pullRequest { _id number
-    name body state merged timestamp title baseBranchName branchName createdAt mergedAt
-    head { sha message } lastAssignedBy { login name person { gitHubId { login } chatId
-    { screenName id } } } closedAt branch { name timestamp } author { login name person
-    { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
-    { login } chatId { screenName id } } } assignees { login name person { gitHubId
-    { login } chatId { screenName id } } } reviewers { login name person { gitHubId
-    { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
-    10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
-    name release { name timestamp } } statuses { state description context targetUrl
-    timestamp } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
-    startedAt completedAt htmlUrl outputTitle } } author { login name person { gitHubId
-    { login } chatId { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc])
-    { name buildUrl buildId status timestamp } } builds(trigger: pull_request, orderBy:
-    [timestamp_desc]) { name buildUrl buildId status timestamp } reviews { state by
-    { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
-    allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
-    providerId providerType private } team { id chatTeams { id preferences { name value
-    } } } } } } }}'
+      name body state merged timestamp title baseBranchName branchName createdAt mergedAt
+      head { sha message } lastAssignedBy { login name person { gitHubId { login } chatId
+      { screenName id } } } closedAt branch { name timestamp } author { login name person
+      { gitHubId { login } chatId { screenName id } } } merger { login name person { gitHubId
+      { login } chatId { screenName id } } } assignees { login name person { gitHubId
+      { login } chatId { screenName id } } } reviewers { login name person { gitHubId
+      { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
+      10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
+      name release { name timestamp } } statuses { state description context targetUrl
+      timestamp } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      startedAt completedAt htmlUrl outputTitle } } author { login name person { gitHubId
+      { login } chatId { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc])
+      { name buildUrl buildId status timestamp } } builds(trigger: pull_request, orderBy:
+      [timestamp_desc]) { name buildUrl buildId status timestamp } reviews { state by
+      { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
+      allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
+      providerId providerType private } team { id chatTeams { id preferences { name value
+      } } } } } } }}'
     - 'subscription StatusToPullRequestLifecycle { Status { _id commit { pullRequests(first:
-    1) { _id number name body state merged timestamp title baseBranchName branchName
-    createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
-    { login } chatId { screenName id } } } closedAt branch { name timestamp } author
-    { login name person { gitHubId { login } chatId { screenName id } } } merger { login
-    name person { gitHubId { login } chatId { screenName id } } } assignees { login
-    name person { gitHubId { login } chatId { screenName id } } } reviewers { login
-    name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
-    { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
-    { address } tags { name release { name timestamp } } statuses { state description
-    context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
-    status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
-    person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
-    [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
-    orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
-    state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
-    allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
-    providerId providerType private } team { id chatTeams { id preferences { name value
-    } } } } } } } }}'
+      1) { _id number name body state merged timestamp title baseBranchName branchName
+      createdAt mergedAt head { sha message } lastAssignedBy { login name person { gitHubId
+      { login } chatId { screenName id } } } closedAt branch { name timestamp } author
+      { login name person { gitHubId { login } chatId { screenName id } } } merger { login
+      name person { gitHubId { login } chatId { screenName id } } } assignees { login
+      name person { gitHubId { login } chatId { screenName id } } } reviewers { login
+      name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
+      { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
+      { address } tags { name release { name timestamp } } statuses { state description
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
+      person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
+      [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
+      orderBy: [timestamp_desc]) { name buildUrl buildId status timestamp } reviews {
+      state by { login } body } repo { id name owner channels { name team { id } } allowRebaseMerge
+      allowSquashMerge allowMergeCommit defaultBranch org { provider { url apiUrl gitUrl
+      providerId providerType private } team { id chatTeams { id preferences { name value
+      } } } } } } } }}'
     - subscription NotifyReviewerOnPush { Push { branch repo { name owner org { owner
       provider { apiUrl url providerId providerType private } } } commits { author { login
       } sha pullRequests { author { login } name number title body state merged reviewers
