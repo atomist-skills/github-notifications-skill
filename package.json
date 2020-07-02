@@ -46,7 +46,8 @@
         "start": "functions-framework --target=sdm --signature-type=event",
         "test": "echo no tests",
         "test:one": "mocha --require espower-typescript/guess \"test/**/${TEST:-*.test.ts}\"",
-        "typedoc": "npm run doc"
+        "typedoc": "npm run doc",
+        "skill": "run-s compile test && atm-skill gen && atm-skill package"
     },
     "main": "node_modules/@atomist/sdm-function-gcp/lib/function.js"
 }
