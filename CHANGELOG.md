@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.6...HEAD)
+## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.7...HEAD)
+
+## [2.4.7](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.6...2.4.7) - 2020-07-10
 
 ### Added
 
