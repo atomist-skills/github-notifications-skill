@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.6...HEAD)
 
+### Added
+
+-   Render branch deletion with PR. [a2f399b](https://github.com/atomist-skills/github-notifications-skill/commit/a2f399b5b8cd146d93c8a1a849ae97d61cb0bed4)
+
 ## [2.4.6](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.5...2.4.6) - 2020-07-02
 
 ## [2.4.5](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.2...2.4.5) - 2020-07-02
