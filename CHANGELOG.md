@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.7...HEAD)
 
+### Fixed
+
+-   Remove anchor links from markdown. [51d57dc](https://github.com/atomist-skills/github-notifications-skill/commit/51d57dc1412f328299f0d65aac9ae910128d5324)
+
 ## [2.4.7](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.6...2.4.7) - 2020-07-10
 
 ### Added
