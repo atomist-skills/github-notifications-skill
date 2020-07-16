@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Remove markdown comments in PR and issue bodies. [153f5c7](https://github.com/atomist-skills/github-notifications-skill/commit/153f5c7481b9c9dfc31e52f64ef5678168195a2a)
 
+### Fixed
+
+-   Better removal of details in markdown. [44be60f](https://github.com/atomist-skills/github-notifications-skill/commit/44be60f5c760a484de056b9e7f0590945a5c8262)
+
 ## [2.4.8](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.7...2.4.8) - 2020-07-15
 
 ### Fixed
