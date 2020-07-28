@@ -56,7 +56,8 @@
     "test:one": "mocha --require espower-typescript/guess \"test/**/${TEST:-*.test.ts}\"",
     "typedoc": "npm run doc",
     "skill": "run-s compile test && atm-skill gen && atm-skill package",
-    "atm:lint:eslint": "eslint --fix"
+    "atm:lint:eslint": "eslint --fix",
+    "atm:lint:prettier": "prettier --write"
   },
   "main": "node_modules/@atomist/sdm-function-gcp/lib/function.js",
   "husky": {
@@ -65,6 +66,7 @@
     }
   },
   "lint-staged": {
-    "**/*.ts": "npm run atm:lint:eslint"
+    "**/*.ts": "npm run atm:lint:eslint",
+    "**/*.@(graphql|json|markdown|yaml|yml|md)": "npm run atm:lint:prettier"
   }
 }
