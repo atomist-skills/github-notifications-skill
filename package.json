@@ -55,7 +55,7 @@
     "test": "echo no tests",
     "test:one": "mocha --require espower-typescript/guess \"test/**/${TEST:-*.test.ts}\"",
     "typedoc": "npm run doc",
-    "skill": "run-s compile test && atm-skill gen && atm-skill package",
+    "skill": "run-s compile test && atm-skill gen --no-validate && atm-skill package",
     "atm:lint:eslint": "eslint --fix",
     "atm:lint:prettier": "prettier --write"
   },
