@@ -4,7 +4,7 @@ import { ConfigurationMaker } from "@atomist/sdm/lib/core/machine/yaml/configure
 import * as _ from "lodash";
 
 export const LifecycleConfig: ConfigurationMaker = async cfg => {
-    /* const printCommandsExtensionPack: ExtensionPack = {
+	/* const printCommandsExtensionPack: ExtensionPack = {
         ...metadata("print-commands"),
         configure: sdm => {
             // Uncomment to populate atomist.yaml
@@ -33,12 +33,14 @@ export const LifecycleConfig: ConfigurationMaker = async cfg => {
         },
     }; */
 
-    const options = DefaultGitHubLifecycleOptions;
-    delete options.push.web;
-    delete options.issue.web;
-    delete options.pullRequest.web;
+	const options = DefaultGitHubLifecycleOptions;
+	delete options.push.web;
+	delete options.issue.web;
+	delete options.pullRequest.web;
 
-    _.set(cfg, "sdm.extensionPacks", [lifecycleSupport(DefaultGitHubLifecycleOptions)]);
+	_.set(cfg, "sdm.extensionPacks", [
+		lifecycleSupport(DefaultGitHubLifecycleOptions),
+	]);
 
-    return cfg as any;
+	return cfg as any;
 };
