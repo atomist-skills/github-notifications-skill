@@ -17,3 +17,4 @@
 apiVersion: 1
 package:
   type: atomist/node-skill
+  command: atm-skill generate --no-validate
