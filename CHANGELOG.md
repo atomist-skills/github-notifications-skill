@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.10...HEAD)
 
+### Fixed
+
+-   Remove reference to emoji examples in notifications configuration option for emoji. [#27](https://github.com/atomist-skills/github-notifications-skill/issues/27)
+
 ## [2.4.10](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.9...2.4.10) - 2020-07-28
 
 ### Changed
