@@ -1,8 +1,8 @@
 # How to configure
 
 Configuration of this skill is done in chat. As a direct message with the
-`@atomist` bot or in any channel where you have invited `@atomist`, enter
-and send this command:
+`@atomist` bot or in any channel where you have invited `@atomist`, enter and
+send this command:
 
 `@atomist configure notifications`
 
@@ -25,8 +25,10 @@ Follow the instructions provided to configure:
 
 1. **Make a Git push or modify an issue to see a notification in chat**
 
-1. **Enjoy the increased level of visibility of your GitHub activity right
-   in chat!**
+1. **Enjoy the increased level of visibility of your GitHub activity right in
+   chat!**
 
-To create feature requests or bug reports, create an [issue in the repository for this skill](https://github.com/atomist-skills/github-notifications-skill/issues).
-See the [code](https://github.com/atomist-skills/github-notifications-skill) for the skill.
+To create feature requests or bug reports, create an
+[issue in the repository for this skill](https://github.com/atomist-skills/github-notifications-skill/issues).
+See the [code](https://github.com/atomist-skills/github-notifications-skill) for
+the skill.
