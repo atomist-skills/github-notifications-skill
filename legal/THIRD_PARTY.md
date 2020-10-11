@@ -28,7 +28,7 @@ This page details all runtime dependencies of `@atomist/github-notifications-ski
 | [MIT AND BSD-3-Clause](#mit-and-bsd-3-clause)                                                                        | 1     |
 | [MIT AND CC-BY-3.0](#mit-and-cc-by-30)                                                                               | 1     |
 | [MIT AND Zlib](#mit-and-zlib)                                                                                        | 1     |
-| [MIT](#mit)                                                                                                          | 845   |
+| [MIT](#mit)                                                                                                          | 846   |
 | [PSF](#psf)                                                                                                          | 2     |
 | [Public Domain](#public-domain)                                                                                      | 1     |
 | [UNKNOWN](#unknown)                                                                                                  | 2     |
@@ -402,6 +402,7 @@ MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licen
 | `@types/license-checker`                           | `25.0.0`         |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/lodash.flatten`                            | `4.4.6`          |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/lodash`                                    | `4.14.161`       |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
+| `@types/lodash`                                    | `4.14.162`       |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/long`                                      | `4.0.1`          |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/micromatch`                                | `3.1.1`          |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/micromatch`                                | `4.0.1`          |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
