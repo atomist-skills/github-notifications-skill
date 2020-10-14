@@ -5,7 +5,8 @@
     "@atomist/sdm": "^2.0.0",
     "@atomist/sdm-function-gcp": "0.1.0-master.20200911104525",
     "@atomist/sdm-pack-lifecycle": "0.4.0-master.20200911104723",
-    "@atomist/sdm-pack-lifecycle-github": "0.4.0-master.20200911105528"
+    "@atomist/sdm-pack-lifecycle-github": "0.4.0-master.20200911105528",
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.7.1",
