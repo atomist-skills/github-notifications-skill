@@ -28,7 +28,7 @@ This page details all runtime dependencies of `@atomist/github-notifications-ski
 | [MIT AND BSD-3-Clause](#mit-and-bsd-3-clause)                                                                        | 1     |
 | [MIT AND CC-BY-3.0](#mit-and-cc-by-30)                                                                               | 1     |
 | [MIT AND Zlib](#mit-and-zlib)                                                                                        | 1     |
-| [MIT](#mit)                                                                                                          | 846   |
+| [MIT](#mit)                                                                                                          | 845   |
 | [PSF](#psf)                                                                                                          | 2     |
 | [Public Domain](#public-domain)                                                                                      | 1     |
 | [UNKNOWN](#unknown)                                                                                                  | 2     |
@@ -856,7 +856,6 @@ MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licen
 | `lodash.uniq`                                      | `4.5.0`          | John-David Dalton                                     | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                           |
 | `lodash.xorby`                                     | `4.7.0`          | John-David Dalton                                     | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                           |
 | `lodash`                                           | `4.17.15`        | John-David Dalton                                     | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                           |
-| `lodash`                                           | `4.17.19`        | John-David Dalton                                     | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                           |
 | `lodash`                                           | `4.17.20`        | John-David Dalton                                     | [https://github.com/lodash/lodash](https://github.com/lodash/lodash)                                                                           |
 | `log-symbols`                                      | `1.0.2`          | Sindre Sorhus                                         | [https://github.com/sindresorhus/log-symbols](https://github.com/sindresorhus/log-symbols)                                                     |
 | `log-update`                                       | `2.3.0`          | Sindre Sorhus                                         | [https://github.com/sindresorhus/log-update](https://github.com/sindresorhus/log-update)                                                       |
