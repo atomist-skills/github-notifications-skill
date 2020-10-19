@@ -1,23 +1,44 @@
-# What it's useful for
+## What it's useful for
+
+Get rich notifications in chat for activity in your GitHub repositories and
+harness the power of ChatOps.
+
+-   See all commit, push, issue and pull request activity in neatly presented
+    chat messages
+-   Notifications are actionable—react to GitHub activity from Slack or MS
+    Teams—comment on issues and PRs, close issues and merge PRs with buttons
+    right in the Slack message
+-   The same messages and actions are available on your phone with the Slack and
+    MS Teams mobile apps
+-   Easily configure the amount of information you get in notification messages
 
 Enabling this skill turns on notifications and provides commands for GitHub
-activities from Slack or Microsoft Teams.
+actions from Slack or Microsoft Teams.
 
-This skill uses either the Slack or Microsoft Teams integration, which needs to
-be configured before using the skill. To choose channels to receive
-notifications from repositories, link them on the **Manage > Integrations >
-Slack** or **Manage > Integrations > Microsoft Teams** page.
+### See each push in the same channel you discuss the code
 
-For more information about the Slack integration and channel repository linking,
-see [the documentation](https://docs.atomist.com/user/slack/).
+![GitHub Notification Push](docs/images/push.png)
 
-# Before you get started
+### Review all commit checks without leaving chat
 
-Connect and configure these integrations:
+![GitHub Notification Commit Checks](docs/images/push-more.png)
 
-1. **GitHub**
-2. **Slack** or **Microsoft Teams**
+### See issues comments and other updates
 
-The **GitHub** integration must be configured in order to use this skill. At
-least one repository must be selected. The **Slack** or **Microsoft Teams**
-integration needs to be configured.
+![GitHub Notification Issues](docs/images/issue.png)
+
+### See repository activity and take action on your phone
+
+![GitHub Notification Mobile](docs/images/mobile.png)
+
+### Get notified when there is a new pull request
+
+![GitHub Notification Pull Requests](docs/images/pr.png)
+
+### See Atomist Skill executions
+
+![GitHub Notification Atomist Skills](docs/images/skill.png)
+
+### Get DMs when someone requests you review a PR or there is activity on your issues and PRs
+
+![GitHub Notification Direct Messages](docs/images/dm.png)

@@ -1,71 +1,81 @@
 # `atomist/github-notifications-skill`
 
-<!---atomist-skill-readme:start--->
+Get actionable visibility into all your GitHub activity right in chat.
 
-# What it's useful for
+:sparkles: [_**View this skill in the Atomist Skills Catalog**_][atomist-skill]
+to enable this skill on your repositories. :sparkles:
 
-Enabling this skill turns on notifications and provides commands for GitHub
-activities from Slack or Microsoft Teams.
+See the [Atomist website][atomist] for general information about Atomist Skills
+and the [Atomist documentation site][atomist-doc] for instructions on how to get
+started using Atomist Skills.
 
-This skill uses either the Slack or Microsoft Teams integration, which needs to
-be configured before using the skill. To choose channels to receive
-notifications from repositories, link them on the **Manage > Integrations >
-Slack** or **Manage > Integrations > Microsoft Teams** page.
+[atomist-skill]:
+    https://go.atomist.com/catalog/skills/atomist/github-notifications-skill
+    "Atomist Skills Catalog - Automate All Your Software Tasks"
+[atomist-doc]: https://docs.atomist.com/ "Atomist Documentation"
 
-For more information about the Slack integration and channel repository linking,
-see [the documentation](https://docs.atomist.com/user/slack/).
+## Contributing
 
-# Before you get started
+Contributions to this project from community members are encouraged and
+appreciated. Please review the [Contributing Guidelines](CONTRIBUTING.md) for
+more information. Also see the [Development](#development) section in this
+document.
 
-Connect and configure these integrations:
+## Code of conduct
 
-1. **GitHub**
-2. **Slack** or **Microsoft Teams**
+This project is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). You are
+expected to act in accordance with this code by participating. Please report any
+unacceptable behavior to code-of-conduct@atomist.com.
 
-The **GitHub** integration must be configured in order to use this skill. At
-least one repository must be selected. The **Slack** or **Microsoft Teams**
-integration needs to be configured.
+## Connect
 
-# How to configure
+Follow [@atomist][atomist-twitter] on Twitter and [The Atomist
+Blog][atomist-blog].
 
-Configuration of this skill is done in chat. As a direct message with the
-`@atomist` bot or in any channel where you have invited `@atomist`, enter and
-send this command:
+[atomist-twitter]: https://twitter.com/atomist "Atomist on Twitter"
+[atomist-blog]: https://blog.atomist.com/ "The Atomist Blog"
 
-`@atomist configure notifications`
+## Support
 
-![Configure GitHub Notifications](docs/images/configure-notifications.png)
+General support questions should be discussed in the `#support` channel in the
+[Atomist community Slack workspace][slack].
 
-Follow the instructions provided to configure:
+If you find a problem, please create an [issue](../../issues).
 
--   How notifications work for pushes, issues, pull requests, branches, code
-    reviews and commenting
--   Whether to show compact or standard notification messages
--   Add emoji used by these notifications
+## Development
 
-# How to use GitHub Notifications
+You will need to install [Node.js][node] to build and test this project.
 
-1. **Configure the GitHub and Slack integrations**
+[node]: https://nodejs.org/ "Node.js"
 
-1. **Link at least one chat channel to a GitHub repository**
+### Build and test
 
-    ![Slack Integration Configuration](docs/images/slack-integration.png)
+Install dependencies.
 
-1. **Make a Git push or modify an issue to see a notification in chat**
+```
+$ npm ci
+```
 
-1. **Enjoy the increased level of visibility of your GitHub activity right in
-   chat!**
+Use the `build` package script to compile, test, lint, and build the
+documentation.
 
-To create feature requests or bug reports, create an
-[issue in the repository for this skill](https://github.com/atomist-skills/github-notifications-skill/issues).
-See the [code](https://github.com/atomist-skills/github-notifications-skill) for
-the skill.
+```
+$ npm run build
+```
 
-<!---atomist-skill-readme:end--->
+### Release
+
+Releases are created by pushing a release [semantic version][semver] tag to the
+repository, Atomist Skills take care of the rest.
+
+To make this skill globally available, set its maturity to "stable" via the set
+maturity drop-down in its Atomist Community Slack channel.
+
+[semver]: https://semver.org/ "Semantic Version"
 
 ---
 
 Created by [Atomist][atomist]. Need Help? [Join our Slack workspace][slack].
 
-[atomist]: https://atomist.com/ "Atomist - How Teams Deliver Software"
+[atomist]: https://atomist.com/ "Atomist - Automate All the Software Things"
 [slack]: https://join.atomist.com/ "Atomist Community Slack"
