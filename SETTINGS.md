@@ -32,15 +32,30 @@ Connect and configure these integrations:
 
     ![Enable skill](docs/images/enable.png)
 
-Further configuration of this skill is done in chat. As a direct message with
-the `@atomist` bot or in any channel where you have invited `@atomist`, enter
-and send the command `@atomist configure notifications`.
+Further configuration of this skill is done in chat. To configure the
+notifications for a channel, send the follow message in the channel
+`@atomist configure notifications`.
 
 ![Configure GitHub Notifications](docs/images/configure-notifications.png)
 
 Follow the instructions provided to configure:
 
--   How notifications work for pushes, issues, pull requests, branches, code
-    reviews and commenting
+-   Enable and disable notifications for different sources of activity, i.e.,
+    pushes, issues, branches, pull requests, comments, and reviews
+-   Select which action buttons, e.g., create tag, comment on issue, raise pull
+    request, merge pull request, create release, and add reaction, you want
+    available in the chat messages
+-   Configure what information is included in the chat messages, e.g., tags,
+    releases, and related issues and pull requests
 -   Whether to show compact or standard notification messages
 -   Add emoji used by these notifications
+
+To configure what GitHub notifications direct messages (DMs) you receive, send
+the DM `configure dms` to the Atomist Bot, `@atomist`.
+
+![Configure GitHub Direct Messages](docs/images/configure-dms.png)
+
+Using the buttons you can enable and disable direct messages sent when, for
+example, you are @-mentioned in a issue or pull request comment, someone
+requests you review a pull request, you are assigned an issue, or new reviews
+are available on a pull requested you created.
