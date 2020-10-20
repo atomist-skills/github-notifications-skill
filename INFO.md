@@ -1,5 +1,3 @@
-## What it's useful for
-
 Get rich notifications in chat for activity in your GitHub repositories and
 harness the power of ChatOps.
 
