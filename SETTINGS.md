@@ -15,22 +15,22 @@ Connect and configure these integrations:
 
 1.  **Link at least one chat channel to a GitHub repository**
 
+    ![Slack Integration Configuration](docs/images/slack-integration.png)
+
     To make sure you get the right notifications in the right place, map your
     GitHub repositories to the chat channels where you discuss each of those
     repositories. We recommend a one-to-one mapping of repositories and
     channels, but feel free to experiment what works best for your team.
-
-    ![Slack Integration Configuration](docs/images/slack-integration.png)
 
     For more information about the Slack integration and channel repository
     linking, see [the documentation](https://docs.atomist.com/user/slack/).
 
 2.  **Activate the skill**
 
+    ![Enable skill](docs/images/enable.png)
+
     Save your configuration and activate the skill by clicking the "Enable
     skill" button.
-
-    ![Enable skill](docs/images/enable.png)
 
 Further configuration of this skill is done in chat. To configure the
 notifications for a channel, send the follow message in the channel
