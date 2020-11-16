@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.11...HEAD)
 
+### Changed
+
+-   Update skill icon. [b33fb46](https://github.com/atomist-skills/github-notifications-skill/commit/b33fb465802096244fe450cc287042233555b787)
+
 ## [2.4.11](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.10...2.4.11) - 2020-08-25
 
 ### Fixed
