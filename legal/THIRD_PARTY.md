@@ -1,8 +1,8 @@
-# `@atomist/github-notifications-skill`
+# `@atomist/github-notification-skill`
 
-`@atomist/github-notifications-skill` is licensed under Apache License 2.0 - [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
+`@atomist/github-notification-skill` is licensed under Apache License 2.0 - [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-This page details all runtime dependencies of `@atomist/github-notifications-skill`.
+This page details all runtime dependencies of `@atomist/github-notification-skill`.
 
 ## Licenses
 
@@ -28,7 +28,7 @@ This page details all runtime dependencies of `@atomist/github-notifications-ski
 | [MIT AND BSD-3-Clause](#mit-and-bsd-3-clause)                                                                        | 1     |
 | [MIT AND CC-BY-3.0](#mit-and-cc-by-30)                                                                               | 1     |
 | [MIT AND Zlib](#mit-and-zlib)                                                                                        | 1     |
-| [MIT](#mit)                                                                                                          | 845   |
+| [MIT](#mit)                                                                                                          | 846   |
 | [PSF](#psf)                                                                                                          | 2     |
 | [Public Domain](#public-domain)                                                                                      | 1     |
 | [UNKNOWN](#unknown)                                                                                                  | 2     |
@@ -413,9 +413,10 @@ MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licen
 | `@types/node-fetch`                                | `2.5.7`          |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/node-statsd`                               | `0.1.2`          |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/node`                                      | `10.17.35`       |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
-| `@types/node`                                      | `12.12.57`       |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
+| `@types/node`                                      | `12.19.5`        |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/node`                                      | `13.13.18`       |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/node`                                      | `14.10.0`        |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
+| `@types/node`                                      | `14.14.8`        |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/passport-http-bearer`                      | `1.0.35`         |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/passport-http`                             | `0.3.8`          |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
 | `@types/passport`                                  | `1.0.4`          |                                                       | [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)                                       |
