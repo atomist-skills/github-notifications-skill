@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 -   Add repo filter to skill. [#75](https://github.com/atomist-skills/github-notifications-skill/issues/75)
+-   Add default channel to skill configuration. [#76](https://github.com/atomist-skills/github-notifications-skill/issues/76)
 
 ## [2.5.0](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.11...2.5.0) - 2020-11-18
 
