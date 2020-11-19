@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Add default channel to skill configuration. [#76](https://github.com/atomist-skills/github-notifications-skill/issues/76)
 -   Add config to filter out activity by certain GitHub users. [#77](https://github.com/atomist-skills/github-notifications-skill/issues/77)
 
+### Removed
+
+-   Remove maxConfigurations. [b191f76](https://github.com/atomist-skills/github-notifications-skill/commit/b191f764f5717d2ece96cedab7e889ad9b40054e)
+
 ## [2.5.0](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.11...2.5.0) - 2020-11-18
 
 ### Changed
