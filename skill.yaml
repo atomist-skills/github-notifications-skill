@@ -57,6 +57,13 @@ skill:
       description: Chat
       minRequired: 1
 
+  parameters:
+    - repoFilter:
+        name: repos
+        displayName: Which repositories
+        description: ""
+        required: true
+
   commands:
     - name: ConfigureDirectMessageUserPreferences
       description: Configure your personal Direct Message preferences
