@@ -58,6 +58,13 @@ skill:
       minRequired: 1
 
   parameters:
+    - chatChannels:
+        name: channels
+        displayName: Chat channels
+        description: >
+          Chat channels to receive notifications if a repository isn't linked to specific channels. You can link repositories
+          to channels by running `@atomist repos` in a chat channel or by using the [channel linking web interface](https://go.atomist.com/r/auth/manage/integrations/add/SlackResourceProvider).
+        required: false
     - repoFilter:
         name: repos
         displayName: Which repositories
