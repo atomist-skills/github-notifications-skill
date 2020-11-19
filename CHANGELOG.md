@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.5.0...HEAD)
 
+### Added
+
+-   Add repo filter to skill. [#75](https://github.com/atomist-skills/github-notifications-skill/issues/75)
+
 ## [2.5.0](https://github.com/atomist-skills/github-notifications-skill/compare/2.4.11...2.5.0) - 2020-11-18
 
 ### Changed
