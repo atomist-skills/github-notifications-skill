@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Add default channel to skill configuration. [#76](https://github.com/atomist-skills/github-notifications-skill/issues/76)
 -   Add config to filter out activity by certain GitHub users. [#77](https://github.com/atomist-skills/github-notifications-skill/issues/77)
 -   Add icons for missing GitHub checks states. [#71](https://github.com/atomist-skills/github-notifications-skill/issues/71)
+-   Auto-expand push lifecycle on failed check runs. [#72](https://github.com/atomist-skills/github-notifications-skill/issues/72)
 
 ### Removed
 
