@@ -13,7 +13,8 @@ Connect and configure these integrations:
 
 ## How to configure
 
-1.  **Link at least one chat channel to a GitHub repository**
+1.  **Link at least one chat channel to a GitHub repository or select a default
+    channel to send notifications to**
 
     ![Slack Integration Configuration](docs/images/slack-integration.png)
 
@@ -24,8 +25,16 @@ Connect and configure these integrations:
 
     For more information about the Slack integration and channel repository
     linking, see [the documentation](https://docs.atomist.com/user/slack/).
+    
+    You can also configure a default chat channel to receive notifications
+    for repositories that are not linked to specific channels.
+    
+1.  **Ignore activity from certain users or apps**
 
-2.  **Activate the skill**
+    To reduce message volume in chat, configure GitHub logins of users,
+    bots or GitHub apps that should not be trigger chat notifications.      
+
+1.  **Activate the skill**
 
     ![Enable skill](docs/images/enable.png)
 
