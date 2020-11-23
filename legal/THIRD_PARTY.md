@@ -1201,7 +1201,7 @@ The Unlicense - [https://unlicense.org/](https://unlicense.org/)
 
 #### WTFPL
 
-Do What The F*ck You Want To Public License - [http://www.wtfpl.net/about/](http://www.wtfpl.net/about/)
+Do What The F\*ck You Want To Public License - [http://www.wtfpl.net/about/](http://www.wtfpl.net/about/)
 
 | Name              | Version | Publisher            | Repository                                                                               |
 | ----------------- | ------- | -------------------- | ---------------------------------------------------------------------------------------- |
