@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.7.0...HEAD)
 
+### Changed
+
+-   Link to latest check instead of first from footer. [af24f3a](https://github.com/atomist-skills/github-notifications-skill/commit/af24f3a96f37a976d0ae406bbcb77203b251df2b)
+
 ## [2.7.0](https://github.com/atomist-skills/github-notifications-skill/compare/2.6.0...2.7.0) - 2020-12-02
 
 ### Added
