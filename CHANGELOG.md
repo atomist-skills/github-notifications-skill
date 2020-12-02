@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.6.0...HEAD)
 
+### Added
+
+-   Show compact check state in commit footer. [43c67d8](https://github.com/atomist-skills/github-notifications-skill/commit/43c67d85352b218fabdce85d42ac370b9013a197)
+
 ## [2.6.0](https://github.com/atomist-skills/github-notifications-skill/compare/2.5.0...2.6.0) - 2020-11-24
 
 ### Added
