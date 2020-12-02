@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.7.2...HEAD)
 
+### Changed
+
+-   Sort checks by state and name. [2434be2](https://github.com/atomist-skills/github-notifications-skill/commit/2434be2084c0d5704fcb4a70cdedaae3c63133f6)
+
 ## [2.7.2](https://github.com/atomist-skills/github-notifications-skill/compare/2.7.1...2.7.2) - 2020-12-02
 
 ### Changed
