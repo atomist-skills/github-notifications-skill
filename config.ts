@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
+import { ConfigurationMaker } from "@atomist/sdm/lib/core/machine/yaml/configureYaml";
 import { lifecycleSupport } from "@atomist/sdm-pack-lifecycle";
 import { DefaultGitHubLifecycleOptions } from "@atomist/sdm-pack-lifecycle-github/lib/githubLifecycleSupport";
-import { ConfigurationMaker } from "@atomist/sdm/lib/core/machine/yaml/configureYaml";
 import * as _ from "lodash";
 
 export const LifecycleConfig: ConfigurationMaker = async cfg => {
