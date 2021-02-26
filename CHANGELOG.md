@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/github-notifications-skill/compare/2.7.3...HEAD)
 
+### Added
+
+-   Allow for surpression of certain commits. [d4cedb9](https://github.com/atomist-skills/github-notifications-skill/commit/d4cedb9045f9434698fd4b2da92cfaf3fb9dcb2c)
+
 ## [2.7.3](https://github.com/atomist-skills/github-notifications-skill/compare/2.7.2...2.7.3) - 2020-12-02
 
 ### Changed
