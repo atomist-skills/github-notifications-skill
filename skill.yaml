@@ -69,6 +69,11 @@ skill:
         displayName: Ignore users
         description: GitHub users to ignore when posting notifications to chat. This can be used to ignore activity from bots and apps.
         required: false
+    - stringArray:
+        name: ignoreCommits
+        displayName: Ignore commits
+        description: Provide regular expression to match against commit message to suppress Git pushes to show in chat.
+        required: false
     - repoFilter:
         name: repos
         displayName: Which repositories

@@ -47,7 +47,7 @@
     "@atomist/automation-client": "^2.1.0",
     "@atomist/sdm": "^2.1.2",
     "@atomist/sdm-function-gcp": "0.1.0-master.20200911104525",
-    "@atomist/sdm-pack-lifecycle": "0.5.0-master.20210126103245",
+    "@atomist/sdm-pack-lifecycle": "0.5.0-master.20210226120034",
     "@atomist/sdm-pack-lifecycle-github": "0.4.0-master.20201119174312",
     "lodash": "^4.17.21"
   },
