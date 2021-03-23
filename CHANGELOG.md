@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
--   Update sdm pack lifecycle. [d647f37](https://github.com/atomist-skills/github-notifications-skill/commit/d647f37ffe4ee0f42972cb3a095c4c04789e8599)
+-   Collapse multiple check runs of same name. [d647f37](https://github.com/atomist-skills/github-notifications-skill/commit/d647f37ffe4ee0f42972cb3a095c4c04789e8599)
 
 ## [2.7.4](https://github.com/atomist-skills/github-notifications-skill/compare/2.7.3...2.7.4) - 2021-03-15
 
