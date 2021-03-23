@@ -274,7 +274,7 @@ skill:
       person { gitHubId { login } chatId { screenName id } } } labels { name } comments
       { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
       { address } tags { name release { name timestamp } } statuses { state description
-      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { checkRunId name conclusion
       status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
       person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
       [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
@@ -293,7 +293,7 @@ skill:
       person { gitHubId { login } chatId { screenName id } } } labels { name } comments
       { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
       { address } tags { name release { name timestamp } } statuses { state description
-      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { checkRunId name conclusion
       status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
       person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
       [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
@@ -312,7 +312,7 @@ skill:
       { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
       10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
       name release { name timestamp } } statuses { state description context targetUrl
-      timestamp } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      timestamp } checkSuites { appSlug checkRuns { checkRunId name conclusion status detailsUrl
       startedAt completedAt htmlUrl outputTitle } } author { login name person { gitHubId
       { login } chatId { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc])
       { name buildUrl buildId status timestamp } } builds(trigger: pull_request, orderBy:
@@ -331,7 +331,7 @@ skill:
       person { gitHubId { login } chatId { screenName id } } } labels { name } comments
       { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
       { address } tags { name release { name timestamp } } statuses { state description
-      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { checkRunId name conclusion
       status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
       person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
       [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
@@ -350,7 +350,7 @@ skill:
       name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
       { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
       { address } tags { name release { name timestamp } } statuses { state description
-      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { checkRunId name conclusion
       status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
       person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
       [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
@@ -369,7 +369,7 @@ skill:
       { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
       10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
       name release { name timestamp } } statuses { state description context targetUrl
-      timestamp } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      timestamp } checkSuites { appSlug checkRuns { checkRunId name conclusion status detailsUrl
       startedAt completedAt htmlUrl outputTitle } } author { login name person { gitHubId
       { login } chatId { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc])
       { name buildUrl buildId status timestamp } } builds(trigger: pull_request, orderBy:
@@ -388,7 +388,7 @@ skill:
       { login } chatId { screenName id } } } labels { name } comments { body } commits(first:
       10, orderBy: [timestamp_desc]) { sha timestamp message email { address } tags {
       name release { name timestamp } } statuses { state description context targetUrl
-      timestamp } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      timestamp } checkSuites { appSlug checkRuns { checkRunId name conclusion status detailsUrl
       startedAt completedAt htmlUrl outputTitle } } author { login name person { gitHubId
       { login } chatId { screenName id } } } builds(trigger: push, orderBy: [timestamp_desc])
       { name buildUrl buildId status timestamp } } builds(trigger: pull_request, orderBy:
@@ -407,7 +407,7 @@ skill:
       name person { gitHubId { login } chatId { screenName id } } } labels { name } comments
       { body } commits(first: 10, orderBy: [timestamp_desc]) { sha timestamp message email
       { address } tags { name release { name timestamp } } statuses { state description
-      context targetUrl timestamp } checkSuites { appSlug checkRuns { name conclusion
+      context targetUrl timestamp } checkSuites { appSlug checkRuns { checkRunId name conclusion
       status detailsUrl startedAt completedAt htmlUrl outputTitle } } author { login name
       person { gitHubId { login } chatId { screenName id } } } builds(trigger: push, orderBy:
       [timestamp_desc]) { name buildUrl buildId status timestamp } } builds(trigger: pull_request,
@@ -426,7 +426,7 @@ skill:
       { id name provider config builds { jobId jobName finishedAt startedAt status id
       buildUrl } } } before { sha } after { sha message email { address } author { login
       avatar person { chatId { screenName } } } committer { login name person { chatId
-      { screenName } } } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion status detailsUrl
       startedAt completedAt htmlUrl outputTitle } } statuses { context description targetUrl
       state timestamp } tags { name release { name timestamp } builds { buildId buildUrl
       name provider status timestamp } timestamp } images { _id image imageName pods {
@@ -457,7 +457,7 @@ skill:
       workflow { id name provider config builds { jobId jobName finishedAt startedAt status
       id buildUrl } } } before { sha } after { sha message email { address } author {
       login avatar person { chatId { screenName } } } committer { login name person {
-      chatId { screenName } } } checkSuites { appSlug checkRuns { name conclusion status
+      chatId { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion status
       detailsUrl startedAt completedAt htmlUrl outputTitle } } statuses { context description
       targetUrl state timestamp } tags { name release { name timestamp } builds { buildId
       buildUrl name provider status timestamp } timestamp } images { _id image imageName
@@ -488,7 +488,7 @@ skill:
       { id name provider config builds { jobId jobName finishedAt startedAt status id
       buildUrl } } } before { sha } after { sha message email { address } author { login
       avatar person { chatId { screenName } } } committer { login name person { chatId
-      { screenName } } } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion status detailsUrl
       startedAt completedAt htmlUrl outputTitle } } statuses { context description targetUrl
       state timestamp } tags { name release { name timestamp } builds { buildId buildUrl
       name provider status timestamp } timestamp } images { _id image imageName pods {
@@ -519,7 +519,7 @@ skill:
       { id name provider config builds { jobId jobName finishedAt startedAt status id
       buildUrl } } } before { sha } after { sha message email { address } author { login
       avatar person { chatId { screenName } } } committer { login name person { chatId
-      { screenName } } } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion status detailsUrl
       startedAt completedAt htmlUrl outputTitle } } statuses { context description targetUrl
       state timestamp } tags { name release { name timestamp } builds { buildId buildUrl
       name provider status timestamp } timestamp } images { _id image imageName pods {
@@ -550,7 +550,7 @@ skill:
       workflow { id name provider config builds { jobId jobName finishedAt startedAt status
       id buildUrl } } } before { sha } after { sha message email { address } author {
       login avatar person { chatId { screenName } } } committer { login name person {
-      chatId { screenName } } } checkSuites { appSlug checkRuns { name conclusion status
+      chatId { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion status
       detailsUrl startedAt completedAt htmlUrl outputTitle } } statuses { context description
       targetUrl state timestamp } tags { name release { name timestamp } builds { buildId
       buildUrl name provider status timestamp } timestamp } images { _id image imageName
@@ -581,7 +581,7 @@ skill:
       { id name provider config builds { jobId jobName finishedAt startedAt status id
       buildUrl } } } before { sha } after { sha message email { address } author { login
       avatar person { chatId { screenName } } } committer { login name person { chatId
-      { screenName } } } checkSuites { appSlug checkRuns { name conclusion status detailsUrl
+      { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion status detailsUrl
       startedAt completedAt htmlUrl outputTitle } } statuses { context description targetUrl
       state timestamp } tags { name release { name timestamp } builds { buildId buildUrl
       name provider status timestamp } timestamp } images { _id image imageName pods {
@@ -612,7 +612,7 @@ skill:
       { jobId jobName finishedAt startedAt status id buildUrl } } } before { sha } after
       { sha message email { address } author { login avatar person { chatId { screenName
       } } } committer { login name person { chatId { screenName } } } checkSuites { appSlug
-      checkRuns { name conclusion status detailsUrl startedAt completedAt htmlUrl outputTitle
+      checkRuns { checkRunId name conclusion status detailsUrl startedAt completedAt htmlUrl outputTitle
       } } statuses { context description targetUrl state timestamp } tags { name release
       { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
       } images { _id image imageName pods { _id name phase environment namespace timestamp
@@ -642,7 +642,7 @@ skill:
       workflow { id name provider config builds { jobId jobName finishedAt startedAt status
       id buildUrl } } } before { sha } after { sha message email { address } author {
       login avatar person { chatId { screenName } } } committer { login name person {
-      chatId { screenName } } } checkSuites { appSlug checkRuns { name conclusion status
+      chatId { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion status
       detailsUrl startedAt completedAt htmlUrl outputTitle } } statuses { context description
       targetUrl state timestamp } tags { name release { name timestamp } builds { buildId
       buildUrl name provider status timestamp } timestamp } images { _id image imageName
@@ -674,7 +674,7 @@ skill:
       finishedAt startedAt status id buildUrl } } } before { sha } after { sha message
       email { address } author { login avatar person { chatId { screenName } } } committer
       { login name person { chatId { screenName } } } checkSuites { appSlug checkRuns
-      { name conclusion status detailsUrl startedAt completedAt htmlUrl outputTitle }
+      { checkRunId name conclusion status detailsUrl startedAt completedAt htmlUrl outputTitle }
       } statuses { context description targetUrl state timestamp } tags { name release
       { name timestamp } builds { buildId buildUrl name provider status timestamp } timestamp
       } images { _id image imageName pods { _id name phase environment namespace timestamp
@@ -704,7 +704,7 @@ skill:
       workflow { id name provider config builds { jobId jobName finishedAt startedAt status
       id buildUrl } } } before { sha } after { sha message email { address } author {
       login avatar person { chatId { screenName } } } committer { login name person {
-      chatId { screenName } } } checkSuites { appSlug checkRuns { name conclusion status
+      chatId { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion status
       detailsUrl startedAt completedAt htmlUrl outputTitle } } statuses { context description
       targetUrl state timestamp } tags { name release { name timestamp } builds { buildId
       buildUrl name provider status timestamp } timestamp } images { _id image imageName
@@ -735,7 +735,7 @@ skill:
       { sha } timestamp workflow { id name provider config builds { jobId jobName finishedAt
       startedAt status id buildUrl } } } before { sha } after { sha message email { address
       } author { login avatar person { chatId { screenName } } } committer { login name
-      person { chatId { screenName } } } checkSuites { appSlug checkRuns { name conclusion
+      person { chatId { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion
       status detailsUrl startedAt completedAt htmlUrl outputTitle } } statuses { context
       description targetUrl state timestamp } tags { name release { name timestamp } builds
       { buildId buildUrl name provider status timestamp } timestamp } images { _id image
@@ -766,7 +766,7 @@ skill:
       provider config builds { jobId jobName finishedAt startedAt status id buildUrl }
       } } before { sha } after { sha message email { address } author { login avatar person
       { chatId { screenName } } } committer { login name person { chatId { screenName
-      } } } checkSuites { appSlug checkRuns { name conclusion status detailsUrl startedAt
+      } } } checkSuites { appSlug checkRuns { checkRunId name conclusion status detailsUrl startedAt
       completedAt htmlUrl outputTitle } } statuses { context description targetUrl state
       timestamp } tags { name release { name timestamp } builds { buildId buildUrl name
       provider status timestamp } timestamp } images { _id image imageName pods { _id
@@ -797,7 +797,7 @@ skill:
       builds { jobId jobName finishedAt startedAt status id buildUrl } } } before { sha
       } after { sha message email { address } author { login avatar person { chatId {
       screenName } } } committer { login name person { chatId { screenName } } } checkSuites
-      { appSlug checkRuns { name conclusion status detailsUrl startedAt completedAt htmlUrl
+      { appSlug checkRuns { checkRunId name conclusion status detailsUrl startedAt completedAt htmlUrl
       outputTitle } } statuses { context description targetUrl state timestamp } tags
       { name release { name timestamp } builds { buildId buildUrl name provider status
       timestamp } timestamp } images { _id image imageName pods { _id name phase environment
@@ -827,7 +827,7 @@ skill:
       { sha } timestamp workflow { id name provider config builds { jobId jobName finishedAt
       startedAt status id buildUrl } } } before { sha } after { sha message email { address
       } author { login avatar person { chatId { screenName } } } committer { login name
-      person { chatId { screenName } } } checkSuites { appSlug checkRuns { name conclusion
+      person { chatId { screenName } } } checkSuites { appSlug checkRuns { checkRunId name conclusion
       status detailsUrl startedAt completedAt htmlUrl outputTitle } } statuses { context
       description targetUrl state timestamp } tags { name release { name timestamp } builds
       { buildId buildUrl name provider status timestamp } timestamp } images { _id image
