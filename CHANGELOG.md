@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 -   Collapse multiple check runs of same name. [d647f37](https://github.com/atomist-skills/github-notifications-skill/commit/d647f37ffe4ee0f42972cb3a095c4c04789e8599)
+-   Make hide marker regular expression non-greedy. [23da846](https://github.com/atomist-skills/github-notifications-skill/commit/23da84601b2fa08b30135c7b4e36d28339eca50e)
 
 ## [2.7.4](https://github.com/atomist-skills/github-notifications-skill/compare/2.7.3...2.7.4) - 2021-03-15
 
