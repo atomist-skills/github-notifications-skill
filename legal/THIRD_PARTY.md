@@ -264,7 +264,7 @@ ISC License - [https://www.isc.org/downloads/software-support-policy/isc-license
 | `graceful-fs`               | `4.2.3`  |                      | [https://github.com/isaacs/node-graceful-fs](https://github.com/isaacs/node-graceful-fs)             |
 | `graceful-fs`               | `4.2.6`  |                      | [https://github.com/isaacs/node-graceful-fs](https://github.com/isaacs/node-graceful-fs)             |
 | `har-schema`                | `2.0.0`  | Ahmad Nassri         | [https://github.com/ahmadnassri/har-schema](https://github.com/ahmadnassri/har-schema)               |
-| `hosted-git-info`           | `2.8.5`  | Rebecca Turner       | [https://github.com/npm/hosted-git-info](https://github.com/npm/hosted-git-info)                     |
+| `hosted-git-info`           | `2.8.9`  | Rebecca Turner       | [https://github.com/npm/hosted-git-info](https://github.com/npm/hosted-git-info)                     |
 | `http-call`                 | `5.3.0`  | Jeff Dickey @jdxcode | [https://github.com/heroku/http-call](https://github.com/heroku/http-call)                           |
 | `inflight`                  | `1.0.6`  | Isaac Z. Schlueter   | [https://github.com/npm/inflight](https://github.com/npm/inflight)                                   |
 | `inherits`                  | `2.0.3`  |                      | [https://github.com/isaacs/inherits](https://github.com/isaacs/inherits)                             |
