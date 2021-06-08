@@ -257,7 +257,7 @@ ISC License - [https://www.isc.org/downloads/software-support-policy/isc-license
 | `format-date`               | `1.0.0`  | azer                 | [https://github.com/matthewLarner/format-date](https://github.com/matthewLarner/format-date)         |
 | `fs-minipass`               | `2.1.0`  | Isaac Z. Schlueter   | [https://github.com/npm/fs-minipass](https://github.com/npm/fs-minipass)                             |
 | `fs.realpath`               | `1.0.0`  | Isaac Z. Schlueter   | [https://github.com/isaacs/fs.realpath](https://github.com/isaacs/fs.realpath)                       |
-| `glob-parent`               | `5.1.0`  | Gulp Team            | [https://github.com/gulpjs/glob-parent](https://github.com/gulpjs/glob-parent)                       |
+| `glob-parent`               | `5.1.2`  | Gulp Team            | [https://github.com/gulpjs/glob-parent](https://github.com/gulpjs/glob-parent)                       |
 | `glob`                      | `7.1.5`  | Isaac Z. Schlueter   | [https://github.com/isaacs/node-glob](https://github.com/isaacs/node-glob)                           |
 | `glob`                      | `7.1.6`  | Isaac Z. Schlueter   | [https://github.com/isaacs/node-glob](https://github.com/isaacs/node-glob)                           |
 | `graceful-fs`               | `4.1.15` |                      | [https://github.com/isaacs/node-graceful-fs](https://github.com/isaacs/node-graceful-fs)             |
