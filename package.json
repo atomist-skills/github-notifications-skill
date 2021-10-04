@@ -44,7 +44,7 @@
     "test:one": "mocha --require espower-typescript/guess \"test/**/${TEST:-*.test.ts}\""
   },
   "dependencies": {
-    "@atomist/automation-client": "^2.2.0",
+    "@atomist/automation-client": "^2.2.1",
     "@atomist/sdm": "^2.1.4",
     "@atomist/sdm-function-gcp": "0.1.0-master.20200911104525",
     "@atomist/sdm-pack-lifecycle": "0.5.0-master.20210324084547",
